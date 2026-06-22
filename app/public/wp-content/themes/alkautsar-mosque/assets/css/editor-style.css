@@ -1,0 +1,46 @@
+/*
+ * Editor styles — Al-Kautsar Mosque Theme
+ * Mirrors main palette and typography for the block editor.
+ */
+
+body {
+	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	color: #2A140A;
+	font-size: 1.0625rem;
+	line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Cormorant Garamond", "Times New Roman", serif;
+	color: #3B1E12;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+a { color: #B8901E; }
+
+blockquote {
+	border-left: 4px solid #D4AF37;
+	padding: 1rem 1.5rem;
+	background: #F1E7D2;
+	border-radius: 6px;
+	font-family: "Cormorant Garamond", serif;
+	font-style: italic;
+	color: #3B1E12;
+	font-size: 1.25rem;
+}
+
+.wp-block-button__link {
+	background: #3B1E12;
+	border-radius: 999px;
+	font-weight: 600;
+}
+
+.wp-block-button__link:hover { background: #2A140A; }
