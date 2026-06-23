@@ -207,10 +207,11 @@ require ALKAUTSAR_DIR . '/inc/template-tags.php';
 require ALKAUTSAR_DIR . '/inc/customizer.php';
 require ALKAUTSAR_DIR . '/inc/security.php';
 require ALKAUTSAR_DIR . '/inc/events.php';
-require ALKAUTSAR_DIR . '/inc/beneficiaries.php';
 require ALKAUTSAR_DIR . '/inc/financial-reports.php';
 require ALKAUTSAR_DIR . '/inc/programs.php';
 require ALKAUTSAR_DIR . '/inc/dkm.php';
+require ALKAUTSAR_DIR . '/inc/galeri.php';
+require ALKAUTSAR_DIR . '/inc/user-roles.php';
 require ALKAUTSAR_DIR . '/inc/admin-settings.php';
 
 /**
