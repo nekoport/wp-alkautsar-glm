@@ -30,8 +30,24 @@ function alkautsar_security_headers() {
         }
         header( 'X-Content-Type-Options: nosniff' );
         header( 'X-Frame-Options: SAMEORIGIN' );
+        header( 'X-XSS-Protection: 1; mode=block' );
         header( 'Referrer-Policy: strict-origin-when-cross-origin' );
         header( 'Permissions-Policy: geolocation=(self), microphone=(), camera=()' );
+        // Strict-Transport-Security (HSTS) — only if HTTPS.
+        if ( is_ssl() ) {
+                header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
+        }
+        // Content-Security-Policy — restrict external resources.
+        header( "Content-Security-Policy: default-src 'self'; " .
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.aladhan.com https://fonts.googleapis.com; " .
+                "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " .
+                "font-src 'self' https://fonts.gstatic.com data:; " .
+                "img-src 'self' data: https: blob:; " .
+                "connect-src 'self' https://api.aladhan.com; " .
+                "frame-src 'self' https://www.openstreetmap.org; " .
+                "object-src 'none'; " .
+                "base-uri 'self'"
+        );
 }
 add_action( 'send_headers', 'alkautsar_security_headers' );
 

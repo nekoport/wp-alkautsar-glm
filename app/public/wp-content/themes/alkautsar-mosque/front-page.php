@@ -473,22 +473,42 @@ Pelaporan keuangan transparan" );
                                         <p class="section-eyebrow"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_eyebrow', __( 'Transparansi Donasi', 'alkautsar' ) ) ); ?></p>
                                         <h2 class="section-title"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_title', __( 'Amanah Anda, Kami Jaga dengan Terbuka', 'alkautsar' ) ) ); ?></h2>
                                         <p class="transparency__text"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_text', __( 'Setiap donasi yang masuk dicatat, dikelola, dan dilaporkan secara terbuka. Kami percaya transparansi adalah bentuk amanah dan jaminan keberkahan setiap rupiah yang Anda titipkan untuk umat.', 'alkautsar' ) ) ); ?></p>
-                                        <div class="transparency__stats">
-						<div class="transparency__stat">
-							<span class="transparency__stat-number"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat1_value', 'Rp 248jt' ) ); ?></span>
-							<span class="transparency__stat-label"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat1_label', __( 'Donasi Tahun Ini', 'alkautsar' ) ) ); ?></span>
-						</div>
-						<div class="transparency__stat">
-							<span class="transparency__stat-number"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat2_value', '1.284' ) ); ?></span>
-							<span class="transparency__stat-label"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat2_label', __( 'Donatur', 'alkautsar' ) ) ); ?></span>
-						</div>
-						<div class="transparency__stat">
-							<span class="transparency__stat-number"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat3_value', '37' ) ); ?></span>
-							<span class="transparency__stat-label"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat3_label', __( 'Program Terealisasi', 'alkautsar' ) ) ); ?></span>
-						</div>
+                                        
+
+				<?php
+				// Mini beneficiary stats di homepage.
+				$beneficiary_defaults = array(
+					1 => array( 'count' => '15', 'label' => __( 'Anak Yatim', 'alkautsar' ) ),
+					2 => array( 'count' => '25', 'label' => __( 'Fakir Miskin', 'alkautsar' ) ),
+					3 => array( 'count' => '12', 'label' => __( 'Janda', 'alkautsar' ) ),
+					4 => array( 'count' => '',   'label' => '' ),
+					5 => array( 'count' => '',   'label' => '' ),
+				);
+				$homepage_beneficiaries = array();
+				$homepage_total = 0;
+				for ( $bi = 1; $bi <= 5; $bi++ ) {
+					$bcount = (int) preg_replace( '/[^0-9]/', '', get_theme_mod( "alkautsar_beneficiary_{$bi}_count", $beneficiary_defaults[ $bi ]['count'] ) );
+					$blabel = get_theme_mod( "alkautsar_beneficiary_{$bi}_label", $beneficiary_defaults[ $bi ]['label'] );
+					if ( $bcount > 0 && $blabel ) {
+						$homepage_beneficiaries[] = array( 'count' => $bcount, 'label' => $blabel );
+						$homepage_total += $bcount;
+					}
+				}
+				if ( ! empty( $homepage_beneficiaries ) ) :
+					?>
+					<div class="transparency__beneficiaries">
+						<p class="transparency__beneficiaries-label"><?php esc_html_e( 'Penerima Manfaat:', 'alkautsar' ); ?></p>
+						<?php foreach ( $homepage_beneficiaries as $hb ) : ?>
+							<span class="transparency__beneficiary-chip">
+								<strong><?php echo esc_html( $hb['count'] ); ?></strong> <?php echo esc_html( $hb['label'] ); ?>
+							</span>
+						<?php endforeach; ?>
+						<span class="transparency__beneficiary-chip transparency__beneficiary-chip--total">
+							<strong><?php echo esc_html( $homepage_total ); ?></strong> <?php esc_html_e( 'Total', 'alkautsar' ); ?>
+						</span>
 					</div>
-				</div>
-				<a href="<?php echo esc_url( home_url( '/transparansi' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Lihat Laporan Keuangan', 'alkautsar' ); ?></a>
+				<?php endif; ?>
+				="<?php echo esc_url( home_url( '/transparansi' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Lihat Laporan Keuangan', 'alkautsar' ); ?></a>
                                 </div>
                                 <div class="transparency__visual">
                                         <div class="transparency__chart" aria-hidden="true">
