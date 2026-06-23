@@ -3642,6 +3642,154 @@ strong, b { font-weight: 600; color: var(--secondary); }
    23. Galeri Foto + Pagination + Beneficiary Total
 ══════════════════════════════════════════════════════════════════ */
 
+/* Galeri Album (archive) */
+.galeri-album {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--line);
+        transition: all var(--trans);
+}
+.galeri-album:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--line-gold);
+        color: inherit;
+}
+.galeri-album__media {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--base-alt);
+}
+.galeri-album__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s var(--ease);
+}
+.galeri-album:hover .galeri-album__img { transform: scale(1.05); }
+.galeri-album__placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-deep);
+        background: linear-gradient(135deg, var(--base-alt), var(--base-deep));
+}
+.galeri-album__count {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: rgba(59, 30, 18, 0.9);
+        color: var(--accent-soft);
+        padding: 0.375rem 0.75rem;
+        border-radius: var(--radius-pill);
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        backdrop-filter: blur(4px);
+}
+.galeri-album__body {
+        padding: 1.25rem;
+}
+.galeri-album__title {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--secondary);
+        margin: 0 0 0.5rem;
+        line-height: 1.3;
+}
+.galeri-album:hover .galeri-album__title { color: var(--accent-deep); }
+.galeri-album__desc {
+        font-size: 0.875rem;
+        color: var(--ink-soft);
+        margin: 0 0 0.625rem;
+        line-height: 1.5;
+}
+.galeri-album__date {
+        font-size: 0.75rem;
+        color: var(--accent-deep);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+}
+
+/* Galeri Photo Grid (single album) */
+.galeri-photos-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+}
+.galeri-photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        transition: all var(--trans);
+        aspect-ratio: 1 / 1;
+        background: var(--base-alt);
+        margin: 0;
+        cursor: pointer;
+}
+.galeri-photo:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+}
+.galeri-photo__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s var(--ease);
+}
+.galeri-photo:hover .galeri-photo__img { transform: scale(1.08); }
+.galeri-photo__zoom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all var(--trans);
+}
+.galeri-photo:hover .galeri-photo__zoom {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+}
+.galeri-lightbox__counter {
+        margin-top: 0.5rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+        .galeri-photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+        }
+}
+@media (max-width: 480px) {
+        .galeri-photos-grid {
+                grid-template-columns: 1fr;
+        }
+}
+
 /* Beneficiary Total card (highlighted) */
 .beneficiary-stat--total {
         background: linear-gradient(135deg, var(--secondary) 0%, var(--ink) 100%) !important;

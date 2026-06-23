@@ -42,8 +42,6 @@ get_header();
 						<h1 class="entry-title" style="margin:0.5rem 0 1rem;"><?php the_title(); ?></h1>
 						<div class="entry-meta" style="justify-content:flex-start; border:0;">
 							<?php alkautsar_posted_on(); ?>
-							<span>&middot;</span>
-							<?php alkautsar_posted_by(); ?>
 							<?php
 							// Reading time.
 							$content = get_the_content();

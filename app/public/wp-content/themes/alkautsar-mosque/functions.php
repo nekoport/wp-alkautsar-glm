@@ -539,226 +539,220 @@ add_action( 'admin_menu', function() {
 } );
 
 function alkautsar_render_guide_page() {
-        ?>
-        <div class="wrap alkautsar-guide">
-                <h1>Panduan Visual Pengelolaan Website Masjid Al-Kautsar</h1>
-                <p style="font-size:16px; color:#555; max-width:800px;">
-                        Selamat datang! Halaman ini berisi panduan langkah-demi-langkah untuk mengelola website Masjid Al-Kautsar. Klik topik di bawah untuk melihat detailnya.
-                </p>
+	?>
+	<div class="wrap alkautsar-guide">
+		<h1>Panduan Visual Pengelolaan Website Masjid Al-Kautsar</h1>
+		<p style="font-size:16px; color:#555; max-width:800px;">
+			Selamat datang! Halaman ini berisi panduan langkah-demi-langkah untuk mengelola website Masjid Al-Kautsar.
+		</p>
 
-                <div class="alkautsar-guide-grid">
+		<div class="alkautsar-guide-grid">
 
-                        <section class="alkautsar-guide-card">
-                                <h2>1. Cara Posting Berita</h2>
-                                <ol>
-                                        <li>Klik menu <strong>Berita &rarr; Tambah Berita</strong> di sidebar kiri.</li>
-                                        <li>Isi <strong>Judul</strong> di bagian atas (contoh: "Kajian Rutin Pekanan").</li>
-                                        <li>Ketik isi berita di kotak editor (mirip Microsoft Word).</li>
-                                        <li>Gunakan toolbar di atas editor untuk format:
-                                                <ul>
-                                                        <li><strong>B</strong> = Bold (tebal)</li>
-                                                        <li><strong>I</strong> = Italic (miring)</li>
-                                                        <li><strong>U</strong> = Underline (garis bawah)</li>
-                                                        <li>Tombol <strong>gambar</strong> untuk sisipkan foto</li>
-                                                        <li>Tombol <strong>tautan</strong> untuk sisipkan link</li>
-                                                </ul>
-                                        </li>
-                                        <li>Di sidebar kanan, cari kotak <strong>Featured Image</strong> &rarr; klik <strong>Set featured image</strong> &rarr; upload gambar.</li>
-                                        <li>Klik tombol biru <strong>Publish</strong> di kanan atas.</li>
-                                </ol>
-                                <p class="tip"><strong>Tip:</strong> Klik tombol <span class="dashicons dashicons-money"></span> <strong>Kotak Donasi</strong> di toolbar untuk otomatis menambahkan banner donasi di akhir berita.</p>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>1. Posting Berita</h2>
+				<ol>
+					<li>Klik menu <strong>Posts (Berita) &rarr; Tambah Berita</strong>.</li>
+					<li>Isi <strong>Judul</strong> di bagian atas.</li>
+					<li>Ketik isi berita di editor (mirip Microsoft Word).</li>
+					<li>Toolbar atas untuk format: <strong>B</strong> (bold), <strong>I</strong> (italic), <strong>U</strong> (underline), <strong>gambar</strong>, <strong>tautan</strong>.</li>
+					<li>Di sidebar kanan: <strong>Featured Image &rarr; Set featured image</strong> &rarr; upload gambar.</li>
+					<li>Klik tombol biru <strong>Publish</strong> di kanan atas.</li>
+				</ol>
+				<p class="tip"><strong>Tip:</strong> Klik tombol <strong>Kotak Donasi</strong> di toolbar untuk otomatis tambah banner donasi di berita.</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>2. Cara Tambah Kegiatan Mendatang</h2>
-                                <ol>
-                                        <li>Klik menu <strong>Kegiatan &rarr; Tambah Kegiatan</strong>.</li>
-                                        <li>Isi <strong>Judul</strong> (contoh: "Kajian Kitab Bulughul Maram").</li>
-                                        <li>Ketik deskripsi kegiatan di editor.</li>
-                                        <li>Di kotak <strong>Detail Kegiatan</strong> (sidebar kanan), isi:
-                                                <ul>
-                                                        <li><strong>Tanggal:</strong> klik tanggal di kalender</li>
-                                                        <li><strong>Jam Mulai:</strong> contoh 16:30</li>
-                                                        <li><strong>Jam Selesai:</strong> contoh 17:30 (opsional)</li>
-                                                        <li><strong>Lokasi:</strong> contoh "Aula Masjid"</li>
-                                                        <li><strong>Pembicara:</strong> contoh "Ust. Ahmad Fauzi"</li>
-                                                        <li><strong>Kategori:</strong> pilih dari dropdown</li>
-                                                </ul>
-                                        </li>
-                                        <li>Klik <strong>Publish</strong>.</li>
-                                </ol>
-                                <p class="tip">Kegiatan akan otomatis muncul di homepage section "Kegiatan Mendatang" dan di halaman <code>/kegiatan</code>.</p>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>2. Tambah Kegiatan Mendatang</h2>
+				<ol>
+					<li>Klik menu <strong>Kegiatan &rarr; Tambah Kegiatan</strong>.</li>
+					<li>Isi Judul (contoh: "Kajian Kitab Bulughul Maram").</li>
+					<li>Ketik deskripsi kegiatan di editor.</li>
+					<li>Di kotak <strong>Detail Kegiatan</strong> (sidebar kanan), isi: Tanggal, Jam Mulai, Jam Selesai, Lokasi, Pembicara, Kategori.</li>
+					<li>Publish.</li>
+				</ol>
+				<p class="tip">Kegiatan otomatis muncul di homepage section "Kegiatan Mendatang" dan di halaman <code>/kegiatan</code>.</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>3. Cara Tambah Program</h2>
-                                <ol>
-                                        <li>Klik menu <strong>Program &rarr; Tambah Program</strong>.</li>
-                                        <li>Isi Judul dan deskripsi program di editor.</li>
-                                        <li>Di kotak <strong>Detail Program</strong> (sidebar kanan), pilih:
-                                                <ul>
-                                                        <li><strong>Ikon:</strong> Buku/Toga/Hati/Orang/Kubus/Info</li>
-                                                        <li><strong>Jadwal:</strong> contoh "Setiap ba'da Maghrib"</li>
-                                                        <li><strong>Lokasi:</strong> contoh "Aula Masjid"</li>
-                                                </ul>
-                                        </li>
-                                        <li>Upload Featured Image (foto program) di sidebar.</li>
-                                        <li>Publish.</li>
-                                </ol>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>3. Tambah Program</h2>
+				<ol>
+					<li>Klik menu <strong>Program &rarr; Tambah Program</strong>.</li>
+					<li>Isi Judul dan deskripsi program.</li>
+					<li>Di <strong>Detail Program</strong> (sidebar kanan): pilih Ikon, isi Jadwal & Lokasi.</li>
+					<li>Upload Featured Image (foto program).</li>
+					<li>Publish.</li>
+				</ol>
+				<p class="tip">Program otomatis tampil di homepage section "Program yang Bermanfaat bagi Umat". Tombol "Selengkapnya" akan langsung ke halaman detail program.</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>4. Cara Input Laporan Keuangan</h2>
-                                <ol>
-                                        <li>Klik menu <strong>Laporan Keuangan &rarr; Tambah Laporan</strong>.</li>
-                                        <li>Isi <strong>Judul</strong> (contoh: "Laporan Harian 1 Maret 2026" atau "Laporan Bulanan Januari 2026").</li>
-                                        <li>Di kotak <strong>Detail Laporan Keuangan</strong>:
-                                                <ul>
-                                                        <li><strong>Periode:</strong> pilih Harian / Mingguan / Bulanan / Q1-Q4 / Ramadhan / Qurban</li>
-                                                        <li><strong>Tahun:</strong> isi tahun (contoh 2026)</li>
-                                                        <li><strong>Total Pemasukan:</strong> isi angka saja, contoh <code>500000</code> untuk Rp 500.000</li>
-                                                        <li><strong>Total Pengeluaran:</strong> isi angka saja</li>
-                                                        <li><strong>Ringkasan:</strong> tulis catatan singkat (opsional)</li>
-                                                        <li><strong>File PDF:</strong> klik tombol biru <strong>Pilih/Upload PDF</strong> untuk upload bukti laporan</li>
-                                                </ul>
-                                        </li>
-                                        <li>Publish.</li>
-                                </ol>
-                                <p class="tip">Total pemasukan dan pengeluaran tahun berjalan juga bisa diatur di <strong>Appearance &rarr; Customize &rarr; Mosque Settings &rarr; Laporan Keuangan</strong>.</p>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>4. Tambah Album Galeri Foto</h2>
+				<ol>
+					<li>Klik menu <strong>Galeri Foto &rarr; Tambah Album</strong>.</li>
+					<li>Isi <strong>Judul Album</strong> (contoh: "Kerja Bakti Rusunawa").</li>
+					<li>Isi <strong>deskripsi kegiatan</strong> di editor (opsional).</li>
+					<li>Di kotak <strong>Foto Album (Multiple)</strong>: klik tombol <strong>Tambah / Upload Foto</strong>.</li>
+					<li>Pilih multiple foto sekaligus (bisa dari Media Library atau upload baru).</li>
+					<li>Drag foto untuk reorder (foto pertama jadi thumbnail album).</li>
+					<li>Pilih <strong>Kategori</strong> (contoh: Sosial, Kajian, Ramadhan) di sidebar kanan.</li>
+					<li>Publish.</li>
+				</ol>
+				<p class="tip">Halaman <code>/galeri</code> menampilkan thumbnail semua album. Klik album &rarr; lihat semua foto dengan lightbox (navigasi panah kiri/kanan).</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>5. Cara Tambah Penerima Manfaat</h2>
-                                <ol>
-                                        <li>Klik menu <strong>Penerima Manfaat &rarr; Tambah Data</strong>.</li>
-                                        <li>Isi <strong>Nama</strong> (boleh inisial, contoh "Anak Yatim A" untuk privasi).</li>
-                                        <li>Di kotak <strong>Detail Penerima Manfaat</strong>:
-                                                <ul>
-                                                        <li><strong>Kategori:</strong> Yatim / Dhuafa / Janda / Lansia / Santri</li>
-                                                        <li><strong>Usia:</strong> contoh 8 (dalam tahun)</li>
-                                                        <li><strong>Bantuan:</strong> contoh "Santunan bulanan Rp 300.000"</li>
-                                                        <li><strong>Catatan:</strong> opsional, contoh "Yatim piatu, kedua orang tua telah wafat"</li>
-                                                </ul>
-                                        </li>
-                                        <li>Upload foto di <strong>Featured Image</strong> (opsional).</li>
-                                        <li>Publish.</li>
-                                </ol>
-                                <p class="tip">Data otomatis tampil di halaman Transparansi dengan jumlah per kategori.</p>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>5. Tambah Pengurus DKM (dengan Foto)</h2>
+				<ol>
+					<li>Klik menu <strong>Pengurus DKM &rarr; Tambah Anggota</strong>.</li>
+					<li>Isi <strong>Nama</strong> lengkap.</li>
+					<li>Pilih <strong>Jabatan</strong>: Ketua, Wakil, Sekretaris, Bendahara, Imam, Kepala Bidang, Pengurus, atau Lainnya.</li>
+					<li>Isi <strong>Bio Singkat</strong> (opsional).</li>
+					<li>Upload <strong>Foto</strong> di Featured Image (sidebar kanan).</li>
+					<li>Atur <strong>Urutan</strong> via "Order" field (0 = pertama, 1 = kedua, dst).</li>
+					<li>Publish.</li>
+				</ol>
+				<p class="tip">Pengurus DKM otomatis tampil di halaman <code>/profil</code> dengan foto dan jabatan.</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>6. Cara Ganti Logo, Teks, dan Pengaturan Masjid</h2>
-                                <ol>
-                                        <li>Klik menu <strong>Appearance &rarr; Customize</strong> di sidebar.</li>
-                                        <li>Klik <strong>Site Identity</strong> &rarr; upload Logo masjid Anda.</li>
-                                        <li>Klik <strong>Mosque Settings</strong> &rarr; pilih section:
-                                                <ul>
-                                                        <li><strong>Hero Section:</strong> ubah judul & subtitle homepage</li>
-                                                        <li><strong>Profil & DKM:</strong> ubah sejarah, visi-misi, nama pengurus</li>
-                                                        <li><strong>Donation:</strong> ubah nomor rekening, QRIS, WhatsApp</li>
-                                                        <li><strong>Prayer Times:</strong> ubah koordinat masjid</li>
-                                                        <li><strong>Contact:</strong> ubah alamat, telepon, email, social media</li>
-                                                        <li><strong>Laporan Keuangan:</strong> ubah total pemasukan/pengeluaran tahun ini</li>
-                                                </ul>
-                                        </li>
-                                        <li>Klik tombol biru <strong>Publish</strong> di atas.</li>
-                                </ol>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>6. Input Laporan Keuangan</h2>
+				<ol>
+					<li>Klik menu <strong>Laporan Keuangan &rarr; Tambah Laporan</strong>.</li>
+					<li>Isi Judul (contoh: "Laporan Bulanan Januari 2026").</li>
+					<li>Di <strong>Detail Laporan Keuangan</strong>:
+						<ul>
+							<li><strong>Periode:</strong> Harian / Mingguan / Bulanan / Triwulan / Tahunan / Ramadhan / Qurban / Acara</li>
+							<li><strong>Tahun:</strong> 2026</li>
+							<li><strong>Total Pemasukan:</strong> angka saja (otomatis format Rp)</li>
+							<li><strong>Total Pengeluaran:</strong> angka saja</li>
+							<li><strong>Rincian Item:</strong> opsional, satu per baris</li>
+							<li><strong>File PDF:</strong> upload bukti laporan (opsional)</li>
+						</ul>
+					</li>
+					<li>Publish.</li>
+				</ol>
+				<p class="tip">Untuk ringkasan keuangan tahun berjalan (pemasukan/pengeluaran/saldo) & jumlah penerima manfaat, gunakan menu <strong>Beranda (Transparansi)</strong>.</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>7. Toolbar Editor — Kegunaan Setiap Tombol</h2>
-                                <table class="widefat" style="border:none;">
-                                        <tbody>
-                                                <tr><td><strong>B</strong></td><td>Bold (tebal)</td></tr>
-                                                <tr><td><strong>I</strong></td><td>Italic (miring)</td></tr>
-                                                <tr><td><strong>U</strong></td><td>Underline (garis bawah)</td></tr>
-                                                <tr><td><span class="dashicons dashicons-money-alt"></span> <strong>Kotak Donasi</strong></td><td>Tambah banner donasi otomatis</td></tr>
-                                                <tr><td><span class="dashicons dashicons-megaphone"></span> <strong>Pengumuman</strong></td><td>Tambah kotak pengumuman emas</td></tr>
-                                                <tr><td><span class="dashicons dashicons-format-image"></span> <strong>Gambar</strong></td><td>Sisipkan foto</td></tr>
-                                                <tr><td><span class="dashicons dashicons-admin-links"></span> <strong>Tautan</strong></td><td>Sisipkan hyperlink</td></tr>
-                                                <tr><td><strong>Styles</strong> (baris 2)</td><td>Pilih template: Ayat, Info Box, Banner, dll</td></tr>
-                                        </tbody>
-                                </table>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>7. Edit Beranda (Hero, Tentang, Transparansi)</h2>
+				<p style="margin-top:0;">Tiga menu terpisah untuk mengatur tampilan beranda:</p>
+				<ul>
+					<li><strong>Beranda (Hero):</strong> ayat Arab, judul utama, subtitle</li>
+					<li><strong>Beranda (Tentang):</strong> gambar masjid, judul section "Tentang Kami", paragraf, daftar keunggulan, badge (12+ Tahun Mengabdi)</li>
+					<li><strong>Beranda (Transparansi):</strong> display section transparansi, ringkasan keuangan tahun ini, statistik (3 kotak), jumlah penerima manfaat (5 kategori + total otomatis)</li>
+				</ul>
+				<p class="tip">Klik menu di sidebar &rarr; isi form &rarr; klik <strong>Simpan Perubahan</strong>.</p>
+			</section>
 
-                        <section class="alkautsar-guide-card">
-                                <h2>8. Backup Website (PENTING!)</h2>
-                                <ol>
-                                        <li>Install plugin <strong>UpdraftPlus</strong> (gratis di Plugins &rarr; Add New).</li>
-                                        <li>Setelah aktif, klik <strong>Settings &rarr; UpdraftPlus Backups</strong>.</li>
-                                        <li>Klik tab <strong>Settings</strong>, pilih schedule:
-                                                <ul>
-                                                        <li>Files + Database: <strong>Weekly</strong></li>
-                                                        <li>Retention: 4 weeks (simpan 4 backup terakhir)</li>
-                                                </ul>
-                                        </li>
-                                        <li>Pilih cloud storage: Google Drive atau Dropbox (gratis).</li>
-                                        <li>Klik <strong>Save Changes</strong>.</li>
-                                </ol>
-                                <p class="tip warning">Backup = asuransi. Kalau ada masalah, website bisa dikembalikan ke kondisi semula dalam 5 menit.</p>
-                        </section>
+			<section class="alkautsar-guide-card">
+				<h2>8. Profil Masjid & Pengaturan Lainnya</h2>
+				<ul>
+					<li><strong>Profil Masjid:</strong> sejarah, visi, misi</li>
+					<li><strong>Pengaturan Donasi:</strong> bank, QRIS, WhatsApp konfirmasi</li>
+					<li><strong>Pengaturan Kontak:</strong> alamat, telepon, email, sosial media, koordinat peta, metode jadwal sholat</li>
+				</ul>
+				<p class="tip">Untuk upload logo masjid: <strong>Appearance &rarr; Customize &rarr; Site Identity</strong>.</p>
+			</section>
 
-                </div>
+			<section class="alkautsar-guide-card">
+				<h2>9. Toolbar Editor — Tombol Khusus</h2>
+				<table class="widefat" style="border:none;">
+					<tbody>
+						<tr><td><strong>B</strong> / <strong>I</strong> / <strong>U</strong></td><td>Bold / Italic / Underline</td></tr>
+						<tr><td><strong>Kotak Donasi</strong></td><td>Tambah banner donasi otomatis</td></tr>
+						<tr><td><strong>Pengumuman</strong></td><td>Tambah kotak pengumuman emas</td></tr>
+						<tr><td><strong>Styles</strong> (baris 2)</td><td>Template: Ayat, Info Box, Banner, dll</td></tr>
+						<tr><td><strong>Format</strong> (baris 2)</td><td>Pilih heading level (H1, H2, H3)</td></tr>
+						<tr><td><strong>A warna</strong> (baris 2)</td><td>Warna teks & background</td></tr>
+					</tbody>
+				</table>
+			</section>
 
-                <style>
-                        .alkautsar-guide { max-width: 1200px; }
-                        .alkautsar-guide h1 {
-                                color: #3B1E12;
-                                font-family: "Cormorant Garamond", serif;
-                                font-size: 32px;
-                                margin-bottom: 16px;
-                        }
-                        .alkautsar-guide-grid {
-                                display: grid;
-                                grid-template-columns: repeat(2, 1fr);
-                                gap: 20px;
-                                margin-top: 24px;
-                        }
-                        .alkautsar-guide-card {
-                                background: #fff;
-                                border: 1px solid #e0e0e0;
-                                border-radius: 12px;
-                                padding: 24px;
-                                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-                        }
-                        .alkautsar-guide-card h2 {
-                                color: #3B1E12;
-                                font-family: "Cormorant Garamond", serif;
-                                font-size: 22px;
-                                margin-top: 0;
-                                padding-bottom: 12px;
-                                border-bottom: 2px solid #D4AF37;
-                        }
-                        .alkautsar-guide-card ol, .alkautsar-guide-card ul { padding-left: 20px; }
-                        .alkautsar-guide-card li { margin-bottom: 6px; line-height: 1.6; }
-                        .alkautsar-guide-card code {
-                                background: #F1E7D2;
-                                color: #B8901E;
-                                padding: 2px 6px;
-                                border-radius: 4px;
-                                font-family: "Courier New", monospace;
-                        }
-                        .alkautsar-guide-card .tip {
-                                background: #F1E7D2;
-                                border-left: 4px solid #D4AF37;
-                                padding: 10px 14px;
-                                border-radius: 4px;
-                                margin-top: 16px;
-                                font-size: 14px;
-                        }
-                        .alkautsar-guide-card .tip.warning {
-                                background: #fff4e5;
-                                border-left-color: #E07B00;
-                        }
-                        .alkautsar-guide-card table { width: 100%; border-collapse: collapse; }
-                        .alkautsar-guide-card td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; }
-                        .alkautsar-guide-card td:first-child { width: 35%; font-weight: 600; }
-                        @media (max-width: 768px) {
-                                .alkautsar-guide-grid { grid-template-columns: 1fr; }
-                        }
-                </style>
-        </div>
-        <?php
+			<section class="alkautsar-guide-card">
+				<h2>10. Role Pengguna & Hak Akses</h2>
+				<p style="margin-top:0;">Website ini punya 3 role khusus (selain Administrator WordPress):</p>
+				<ul>
+					<li><strong>Humas (Superadmin):</strong> Akses penuh ke semua menu & pengaturan.</li>
+					<li><strong>Bendahara:</strong> Kelola Laporan Keuangan, Beranda (Transparansi), Pengaturan Donasi.</li>
+					<li><strong>Editor Masjid:</strong> Kelola Berita, Program, Kegiatan, Pengurus DKM, Galeri Foto, Beranda (Hero & Tentang), Profil Masjid.</li>
+				</ul>
+				<p class="tip">Untuk tambah user baru: <strong>Users &rarr; Add New</strong> &rarr; pilih Role yang sesuai.</p>
+			</section>
+
+			<section class="alkautsar-guide-card">
+				<h2>11. Backup Website (PENTING!)</h2>
+				<ol>
+					<li>Install plugin <strong>UpdraftPlus</strong> (gratis di Plugins &rarr; Add New).</li>
+					<li>Settings &rarr; UpdraftPlus Backups &rarr; tab Settings.</li>
+					<li>Schedule: Files + Database <strong>Weekly</strong>, Retention 4 weeks.</li>
+					<li>Pilih cloud: Google Drive atau Dropbox (gratis).</li>
+					<li>Save Changes.</li>
+				</ol>
+				<p class="tip warning">Backup = asuransi. Kalau ada masalah, website bisa dikembalikan dalam 5 menit.</p>
+			</section>
+
+		</div>
+
+		<style>
+			.alkautsar-guide { max-width: 1200px; }
+			.alkautsar-guide h1 {
+				color: #3B1E12;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 32px;
+				margin-bottom: 16px;
+			}
+			.alkautsar-guide-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+				margin-top: 24px;
+			}
+			.alkautsar-guide-card {
+				background: #fff;
+				border: 1px solid #e0e0e0;
+				border-radius: 12px;
+				padding: 24px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+			}
+			.alkautsar-guide-card h2 {
+				color: #3B1E12;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 22px;
+				margin-top: 0;
+				padding-bottom: 12px;
+				border-bottom: 2px solid #D4AF37;
+			}
+			.alkautsar-guide-card ol, .alkautsar-guide-card ul { padding-left: 20px; }
+			.alkautsar-guide-card li { margin-bottom: 6px; line-height: 1.6; }
+			.alkautsar-guide-card code {
+				background: #F1E7D2;
+				color: #B8901E;
+				padding: 2px 6px;
+				border-radius: 4px;
+				font-family: "Courier New", monospace;
+			}
+			.alkautsar-guide-card .tip {
+				background: #F1E7D2;
+				border-left: 4px solid #D4AF37;
+				padding: 10px 14px;
+				border-radius: 4px;
+				margin-top: 16px;
+				font-size: 14px;
+			}
+			.alkautsar-guide-card .tip.warning {
+				background: #fff4e5;
+				border-left-color: #E07B00;
+			}
+			.alkautsar-guide-card table { width: 100%; border-collapse: collapse; }
+			.alkautsar-guide-card td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; }
+			.alkautsar-guide-card td:first-child { width: 35%; font-weight: 600; }
+			@media (max-width: 768px) {
+				.alkautsar-guide-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</div>
+	<?php
 }
 
 /**
