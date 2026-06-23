@@ -2282,8 +2282,611 @@ strong, b { font-weight: 600; color: var(--secondary); }
 }
 
 /* ════════════════════════════════════════════════════════════════════
+   22. Block Patterns (front-end styling)
+   Class names prefixed with "akp-" (Al-Kautsar Pattern)
+══════════════════════════════════════════════════════════════════ */
+
+/* Pattern: Pengumuman Penting */
+.entry-content .akp-pengumuman,
+.akp-pengumuman {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        color: var(--secondary);
+        padding: 1.5rem 2rem;
+        border-radius: var(--radius-md);
+        border-left: 6px solid var(--secondary);
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-gold);
+}
+.akp-pengumuman h3,
+.akp-pengumuman h4 {
+        color: var(--secondary);
+        margin-top: 0;
+}
+.akp-pengumuman p {
+        color: var(--secondary);
+        font-weight: 500;
+        margin-bottom: 0;
+}
+
+/* Pattern: Kutipan Ayat */
+.entry-content .akp-ayat,
+.akp-ayat {
+        background: var(--base-alt);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius-md);
+        padding: 2rem 2.5rem;
+        margin: 2rem 0;
+        text-align: center;
+}
+.akp-ayat-arabic {
+        font-family: var(--font-arabic);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: var(--secondary);
+        direction: rtl;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+}
+.akp-ayat-translation {
+        color: var(--ink);
+        font-style: italic;
+        font-size: 1.0625rem;
+        margin-bottom: 0.5rem;
+}
+.akp-ayat-source {
+        color: var(--accent-deep);
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+}
+
+/* Pattern: Card Kajian */
+.entry-content .akp-card-kajian,
+.akp-card-kajian {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--accent);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow-sm);
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 1rem;
+        align-items: start;
+}
+.akp-card-kajian-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--ink) 100%);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 700;
+        border: 3px solid var(--accent);
+}
+.akp-card-kajian-avatar strong { color: var(--accent); }
+.akp-card-kajian-name {
+        color: var(--secondary) !important;
+        font-size: 1.25rem !important;
+        margin: 0 0 0.25rem !important;
+        font-family: var(--font-display);
+        font-weight: 700;
+}
+.akp-card-kajian-role {
+        color: var(--accent-deep) !important;
+        font-size: 0.8125rem !important;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem !important;
+}
+.akp-card-kajian-detail {
+        color: var(--ink-soft) !important;
+        font-size: 0.9375rem !important;
+        line-height: 1.6;
+        margin: 0 !important;
+}
+
+/* Pattern: Banner Donasi */
+.entry-content .akp-banner-donasi,
+.akp-banner-donasi {
+        background: linear-gradient(135deg, #2A140A 0%, var(--secondary) 50%, var(--secondary-soft) 100%);
+        color: var(--white);
+        padding: 2.5rem 2rem;
+        border-radius: var(--radius-lg);
+        margin: 2rem 0;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+}
+.akp-banner-donasi h3,
+.akp-banner-donasi h4 {
+        color: var(--accent) !important;
+        margin-top: 0;
+}
+.akp-banner-donasi p {
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 1.25rem;
+}
+.akp-banner-donasi .wp-block-button__link,
+.akp-banner-donasi .btn {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        color: var(--secondary) !important;
+        font-weight: 700;
+}
+.akp-banner-donasi .wp-block-button__link:hover {
+        background: var(--accent-soft);
+}
+
+/* Pattern: Highlight Statistik */
+.entry-content .akp-stats,
+.akp-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+}
+.entry-content .akp-stat-item,
+.akp-stat-item {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        padding: 1.5rem 1rem;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+        transition: all var(--trans);
+}
+.akp-stat-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+}
+.akp-stat-number {
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 700;
+        color: var(--accent-deep);
+        line-height: 1;
+        margin-bottom: 0.375rem !important;
+        display: block;
+}
+.akp-stat-label {
+        font-size: 0.875rem !important;
+        color: var(--ink-soft) !important;
+        margin: 0 !important;
+}
+
+/* Pattern: Info Box */
+.entry-content .akp-info-box,
+.akp-info-box {
+        background: var(--base-alt);
+        border-left: 4px solid var(--accent);
+        padding: 1.25rem 1.5rem;
+        border-radius: var(--radius-sm);
+        margin: 1.5rem 0;
+}
+.akp-info-box p {
+        margin: 0;
+        color: var(--ink);
+}
+
+/* Pattern: Galeri Kegiatan */
+.entry-content .akp-gallery,
+.akp-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.875rem;
+        margin: 2rem 0;
+}
+.entry-content .akp-gallery-item,
+.akp-gallery-item {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: all var(--trans);
+}
+.akp-gallery-item:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+}
+.akp-gallery-item img,
+.akp-gallery-item .wp-block-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+}
+.akp-gallery-caption {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem !important;
+        color: var(--ink-soft) !important;
+        text-align: center;
+        margin: 0 !important;
+}
+
+/* Pattern: Tabel Jadwal Kajian */
+.entry-content .akp-jadwal,
+.akp-jadwal {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        margin: 1.5rem 0;
+}
+.akp-jadwal-row {
+        display: grid;
+        grid-template-columns: 100px 1fr 1fr 120px;
+        gap: 1rem;
+        padding: 0.875rem 1.25rem;
+        border-bottom: 1px solid var(--line);
+        align-items: center;
+}
+.akp-jadwal-row:last-child {
+        border-bottom: 0;
+}
+.akp-jadwal-row--header {
+        background: var(--secondary);
+        color: var(--accent-soft);
+        font-weight: 600;
+        font-size: 0.8125rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+}
+.akp-jadwal-row--header p { color: var(--accent-soft) !important; margin: 0 !important; }
+.akp-jadwal-day {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: var(--secondary) !important;
+        font-size: 1.0625rem !important;
+        margin: 0 !important;
+}
+.akp-jadwal-row--header .akp-jadwal-day {
+        color: var(--accent) !important;
+}
+.akp-jadwal-row p {
+        margin: 0 !important;
+        color: var(--ink) !important;
+        font-size: 0.9375rem !important;
+}
+
+/* Block Patterns — Responsive */
+@media (max-width: 768px) {
+        .akp-card-kajian,
+        .akp-stats,
+        .akp-gallery {
+                grid-template-columns: 1fr !important;
+        }
+        .akp-card-kajian {
+                text-align: center;
+                justify-items: center;
+        }
+        .akp-card-kajian-avatar { margin: 0 auto; }
+        .akp-jadwal-row {
+                grid-template-columns: 1fr;
+                gap: 0.375rem;
+                padding: 1rem;
+        }
+        .akp-jadwal-row--header { display: none; }
+        .akp-jadwal-row::before {
+                content: attr(data-day);
+                font-family: var(--font-display);
+                font-weight: 700;
+                color: var(--accent-deep);
+                font-size: 1.0625rem;
+        }
+        .akp-jadwal-row p::before {
+                content: attr(data-label) " ";
+                font-weight: 600;
+                color: var(--ink-soft);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+        }
+}
+
+/* ════════════════════════════════════════════════════════════════════
    21. Page Templates — Berita, Profil, Program, Donasi, Transparansi, Jadwal Sholat, Kontak
 ══════════════════════════════════════════════════════════════════ */
+
+/* Single Post Layout (2 kolom: konten + sidebar) */
+.single-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2.5rem;
+        align-items: start;
+}
+
+.entry--with-sidebar {
+        max-width: none;
+        margin: 0;
+}
+
+.entry--with-sidebar .entry-content {
+        max-width: none;
+}
+
+/* Sidebar Donasi */
+.single-sidebar {
+        position: sticky;
+        top: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+}
+
+.sidebar-donasi {
+        background: linear-gradient(160deg, var(--secondary) 0%, var(--ink) 100%);
+        color: var(--white);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem 1.5rem;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--accent);
+        position: relative;
+        overflow: hidden;
+}
+
+.sidebar-donasi::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, var(--accent) 1px, transparent 1px);
+        background-size: 15px 15px;
+        opacity: 0.15;
+        pointer-events: none;
+}
+
+.sidebar-donasi__title {
+        color: var(--accent);
+        font-family: var(--font-display);
+        font-size: 1.375rem;
+        margin: 0 0 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+}
+
+.sidebar-donasi__text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.875rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.5;
+        position: relative;
+}
+
+.sidebar-donasi__bank {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+}
+
+.sidebar-donasi__bank-name {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 0 0.25rem;
+}
+
+.sidebar-donasi__bank-number {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 0 0 0.25rem;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+}
+
+.sidebar-donasi__bank-holder {
+        font-size: 0.8125rem;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0 0 0.75rem;
+}
+
+.sidebar-donasi__qris {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: var(--radius-md);
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        position: relative;
+}
+
+.sidebar-donasi__qris-label {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 0 0.5rem;
+}
+
+.sidebar-donasi__qris img {
+        max-width: 140px;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: var(--radius-sm);
+        background: white;
+        padding: 0.5rem;
+}
+
+.sidebar-donasi .btn {
+        position: relative;
+}
+
+/* Sidebar Latest News */
+.sidebar-latest {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-sm);
+}
+
+.sidebar-latest__title {
+        color: var(--secondary);
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        margin: 0 0 1rem;
+        padding-bottom: 0.625rem;
+        border-bottom: 2px solid var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+}
+
+.sidebar-latest__title svg { color: var(--accent-deep); }
+
+.sidebar-latest__list {
+        display: grid;
+        gap: 0.875rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+}
+
+.sidebar-latest__item { padding: 0; }
+
+.sidebar-latest__link {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        text-decoration: none;
+        color: var(--ink);
+        transition: color var(--trans);
+}
+
+.sidebar-latest__link:hover { color: var(--accent-deep); }
+
+.sidebar-latest__thumb {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        background: var(--base-alt);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-deep);
+}
+
+.sidebar-latest__thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+}
+
+.sidebar-latest__thumb--placeholder { color: var(--accent-deep); }
+
+.sidebar-latest__text { display: flex; flex-direction: column; gap: 0.125rem; min-width: 0; }
+
+.sidebar-latest__title-text {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--secondary);
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+}
+
+.sidebar-latest__link:hover .sidebar-latest__title-text { color: var(--accent-deep); }
+
+.sidebar-latest__date {
+        font-size: 0.75rem;
+        color: var(--ink-soft);
+}
+
+/* Share buttons */
+.entry-share__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+}
+
+.share-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.5rem 0.875rem;
+        border-radius: var(--radius-pill);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--white);
+        text-decoration: none;
+        transition: all var(--trans);
+        cursor: pointer;
+        border: 0;
+        font-family: inherit;
+}
+
+.share-btn--wa { background: #25D366; }
+.share-btn--wa:hover { background: #128C7E; transform: translateY(-2px); color: var(--white); }
+
+.share-btn--fb { background: #1877F2; }
+.share-btn--fb:hover { background: #0c5dc7; transform: translateY(-2px); color: var(--white); }
+
+.share-btn--tg { background: #0088CC; }
+.share-btn--tg:hover { background: #006699; transform: translateY(-2px); color: var(--white); }
+
+.share-btn--copy {
+        background: var(--secondary);
+        color: var(--white);
+}
+.share-btn--copy:hover { background: var(--ink); transform: translateY(-2px); color: var(--white); }
+.share-btn--copy.copied { background: var(--accent); color: var(--secondary); }
+
+/* Related news section */
+.related-news {
+        margin-top: 4rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--line);
+}
+
+/* Report details (expand) */
+.report-item__details {
+        margin-top: 0.5rem;
+}
+
+.report-item__details summary {
+        cursor: pointer;
+        font-size: 0.8125rem;
+        color: var(--accent-deep);
+        font-weight: 600;
+        display: inline-block;
+}
+
+.report-item__details summary:hover { color: var(--secondary); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+        .single-layout {
+                grid-template-columns: 1fr;
+        }
+        .single-sidebar {
+                position: static;
+                flex-direction: column;
+        }
+        .sidebar-donasi { max-width: 600px; margin: 0 auto; }
+        .sidebar-latest { max-width: 600px; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+        .entry-share__buttons { flex-direction: column; }
+        .share-btn { width: 100%; justify-content: center; }
+        .related-news .news__grid { grid-template-columns: 1fr !important; }
+}
+
 
 /* Berita — Search & filter */
 .news-filters {

@@ -1,46 +1,762 @@
 /*
  * Editor styles — Al-Kautsar Mosque Theme
  * Mirrors main palette and typography for the block editor.
+ * Pengurus akan melihat editor yang sama dengan tampilan website,
+ * supaya tidak bingung "putih kosong".
  */
 
-body {
-	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-	color: #2A140A;
-	font-size: 1.0625rem;
-	line-height: 1.65;
+/* ════════════════════════════════════════════════════════════════
+   1. Variables
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+        --base:            #F8F1E4;
+        --base-alt:        #F1E7D2;
+        --base-deep:       #E8D9B8;
+        --secondary:       #3B1E12;
+        --secondary-soft:  #5A3322;
+        --accent:          #D4AF37;
+        --accent-deep:     #B8901E;
+        --accent-soft:     #E6CB66;
+        --ink:             #2A140A;
+        --ink-soft:        #6B4A38;
+        --line:            rgba(59, 30, 18, 0.12);
+        --white:           #FFFFFF;
+        --font-display:    "Cormorant Garamond", "Times New Roman", serif;
+        --font-body:       "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        --font-arabic:     "Amiri", "Scheherazade New", serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Cormorant Garamond", "Times New Roman", serif;
-	color: #3B1E12;
-	font-weight: 600;
-	line-height: 1.2;
+/* ════════════════════════════════════════════════════════════════
+   1b. TinyMCE Classic Editor (body.mce-content-body)
+   Editor iframe styling — supaya mirip front-end
+═══════════════════════════════════════════════════════════════ */
+
+body.mce-content-body,
+#tinymce.mce-content-body,
+.alkautsar-classic-editor {
+        background: var(--base) !important;
+        color: var(--ink) !important;
+        font-family: var(--font-body) !important;
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        padding: 24px 32px !important;
+        max-width: 760px !important;
+        margin: 0 auto !important;
 }
 
-h1 { font-size: 2.75rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
-
-a { color: #B8901E; }
-
-blockquote {
-	border-left: 4px solid #D4AF37;
-	padding: 1rem 1.5rem;
-	background: #F1E7D2;
-	border-radius: 6px;
-	font-family: "Cormorant Garamond", serif;
-	font-style: italic;
-	color: #3B1E12;
-	font-size: 1.25rem;
+/* Typography di TinyMCE */
+body.mce-content-body h1,
+body.mce-content-body h2,
+body.mce-content-body h3,
+body.mce-content-body h4,
+body.mce-content-body h5,
+body.mce-contentBody h6,
+#tinymce h1, #tinymce h2, #tinymce h3, #tinymce h4, #tinymce h5, #tinymce h6 {
+        font-family: var(--font-display) !important;
+        color: var(--secondary) !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.01em !important;
 }
 
-.wp-block-button__link {
-	background: #3B1E12;
-	border-radius: 999px;
-	font-weight: 600;
+body.mce-content-body h1, #tinymce h1 { font-size: 2.5rem !important; line-height: 1.1 !important; margin: 1.5rem 0 1rem !important; }
+body.mce-content-body h2, #tinymce h2 { font-size: 2rem !important; margin: 2rem 0 1rem !important; }
+body.mce-content-body h3, #tinymce h3 { font-size: 1.5rem !important; margin: 1.5rem 0 0.75rem !important; }
+body.mce-content-body h4, #tinymce h4 { font-size: 1.25rem !important; margin: 1.25rem 0 0.5rem !important; }
+body.mce-content-body h5, #tinymce h5 { font-size: 1.125rem !important; margin: 1rem 0 0.5rem !important; }
+body.mce-content-body h6, #tinymce h6 { font-size: 1rem !important; margin: 1rem 0 0.5rem !important; }
+
+body.mce-content-body p, #tinymce p {
+        font-family: var(--font-body) !important;
+        font-size: 1.0625rem !important;
+        line-height: 1.75 !important;
+        color: var(--ink) !important;
+        margin: 0 0 1.25rem !important;
 }
 
-.wp-block-button__link:hover { background: #2A140A; }
+body.mce-content-body a, #tinymce a {
+        color: var(--accent-deep) !important;
+        text-decoration: underline !important;
+}
+
+body.mce-content-body strong, body.mce-content-body b,
+#tinymce strong, #tinymce b {
+        color: var(--secondary) !important;
+        font-weight: 600 !important;
+}
+
+body.mce-content-body ul, body.mce-content-body ol,
+#tinymce ul, #tinymce ol {
+        padding-left: 1.5rem !important;
+        margin: 0 0 1.25rem !important;
+}
+
+body.mce-content-body li, #tinymce li {
+        margin-bottom: 0.5rem !important;
+        line-height: 1.7 !important;
+}
+
+body.mce-content-body ul li::marker,
+#tinymce ul li::marker {
+        color: var(--accent) !important;
+}
+
+/* Blockquote di TinyMCE */
+body.mce-content-body blockquote, body.mce-content-body .mce-item-blockquote,
+#tinymce blockquote {
+        border-left: 4px solid var(--accent) !important;
+        padding: 1rem 1.5rem !important;
+        background: var(--base-alt) !important;
+        border-radius: 6px !important;
+        font-family: var(--font-display) !important;
+        font-style: italic !important;
+        color: var(--secondary) !important;
+        font-size: 1.25rem !important;
+        margin: 1.5rem 0 !important;
+}
+
+/* Code block */
+body.mce-content-body pre,
+#tinymce pre {
+        background: var(--secondary) !important;
+        color: var(--accent-soft) !important;
+        padding: 1.25rem !important;
+        border-radius: 8px !important;
+        font-family: "Courier New", monospace !important;
+        font-size: 0.875rem !important;
+        overflow-x: auto !important;
+}
+
+/* Image styling */
+body.mce-content-body img,
+#tinymce img {
+        border-radius: 12px !important;
+        box-shadow: 0 8px 24px -6px rgba(30, 25, 18, 0.18) !important;
+        max-width: 100% !important;
+        height: auto !important;
+}
+
+/* HR / Separator */
+body.mce-content-body hr,
+#tinymce hr {
+        border: 0 !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent) !important;
+        margin: 2.5rem 0 !important;
+}
+
+/* Table */
+body.mce-content-body table,
+#tinymce table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        margin: 1.5rem 0 !important;
+        background: var(--white) !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0 2px 8px -2px rgba(30, 25, 18, 0.15) !important;
+}
+
+body.mce-content-body th,
+#tinymce th {
+        background: var(--secondary) !important;
+        color: var(--accent-soft) !important;
+        padding: 0.875rem 1rem !important;
+        text-align: left !important;
+        font-weight: 600 !important;
+        font-size: 0.875rem !important;
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
+        border: 1px solid var(--secondary-soft) !important;
+}
+
+body.mce-content-body td,
+#tinymce td {
+        padding: 0.75rem 1rem !important;
+        border: 1px solid var(--line) !important;
+        color: var(--ink) !important;
+}
+
+/* Pattern styles di TinyMCE */
+body.mce-content-body .akp-pengumuman,
+#tinymce .akp-pengumuman {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%) !important;
+        color: var(--secondary) !important;
+        padding: 1.5rem 2rem !important;
+        border-radius: 12px !important;
+        border-left: 6px solid var(--secondary) !important;
+        margin: 1.5rem 0 !important;
+        box-shadow: 0 8px 24px -6px rgba(212, 175, 55, 0.45) !important;
+}
+
+body.mce-content-body .akp-ayat,
+#tinymce .akp-ayat {
+        background: var(--base-alt) !important;
+        border: 1px solid var(--accent) !important;
+        border-radius: 12px !important;
+        padding: 2rem 2.5rem !important;
+        margin: 2rem 0 !important;
+        text-align: center !important;
+}
+
+body.mce-content-body .akp-ayat-arabic,
+#tinymce .akp-ayat-arabic {
+        font-family: var(--font-arabic) !important;
+        font-size: 2rem !important;
+        color: var(--secondary) !important;
+        direction: rtl !important;
+        line-height: 1.8 !important;
+}
+
+body.mce-content-body .akp-info-box,
+#tinymce .akp-info-box {
+        background: var(--base-alt) !important;
+        border-left: 4px solid var(--accent) !important;
+        padding: 1.25rem 1.5rem !important;
+        border-radius: 8px !important;
+        margin: 1.5rem 0 !important;
+}
+
+body.mce-content-body .akp-banner-donasi,
+#tinymce .akp-banner-donasi {
+        background: linear-gradient(135deg, #2A140A 0%, var(--secondary) 50%, var(--secondary-soft) 100%) !important;
+        color: var(--white) !important;
+        padding: 2.5rem 2rem !important;
+        border-radius: 16px !important;
+        margin: 2rem 0 !important;
+        text-align: center !important;
+}
+
+body.mce-content-body .akp-banner-donasi h3,
+body.mce-content-body .akp-banner-donasi h4,
+#tinymce .akp-banner-donasi h3,
+#tinymce .akp-banner-donasi h4 {
+        color: var(--accent) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   2. Editor canvas background & base typography (Gutenberg fallback)
+═══════════════════════════════════════════════════════════════ */
+
+.editor-styles-wrapper,
+.editor-styles-wrapper .block-editor-block-list__layout,
+.wp-block-post-content {
+        background: var(--base);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 1.0625rem;
+        line-height: 1.7;
+}
+
+/* Container width supaya tidak full-width terlalu lebar */
+.wp-block-post-content {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   3. Typography — same scale as front-end
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content h1,
+.wp-block-post-content h2,
+.wp-block-post-content h3,
+.wp-block-post-content h4,
+.wp-block-post-content h5,
+.wp-block-post-content h6 {
+        font-family: var(--font-display);
+        color: var(--secondary);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+}
+
+.wp-block-post-content h1 { font-size: 2.5rem; line-height: 1.1; margin: 1.5rem 0 1rem; }
+.wp-block-post-content h2 { font-size: 2rem; margin: 2rem 0 1rem; }
+.wp-block-post-content h3 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; }
+.wp-block-post-content h4 { font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
+.wp-block-post-content h5 { font-size: 1.125rem; margin: 1rem 0 0.5rem; }
+.wp-block-post-content h6 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+
+.wp-block-post-content p {
+        font-size: 1.0625rem;
+        line-height: 1.75;
+        color: var(--ink);
+        margin: 0 0 1.25rem;
+}
+
+.wp-block-post-content a {
+        color: var(--accent-deep);
+        text-decoration: underline;
+}
+
+.wp-block-post-content strong,
+.wp-block-post-content b {
+        color: var(--secondary);
+        font-weight: 600;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   4. Lists
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content ul,
+.wp-block-post-content ol {
+        padding-left: 1.5rem;
+        margin: 0 0 1.25rem;
+}
+
+.wp-block-post-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.7;
+}
+
+.wp-block-post-content ul li::marker {
+        color: var(--accent);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   5. Blockquote
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content blockquote,
+.wp-block-post-content .wp-block-quote {
+        border-left: 4px solid var(--accent);
+        padding: 1rem 1.5rem;
+        background: var(--base-alt);
+        border-radius: 6px;
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--secondary);
+        font-size: 1.25rem;
+        margin: 1.5rem 0;
+}
+
+.wp-block-post-content blockquote p,
+.wp-block-post-content .wp-block-quote p {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--secondary);
+}
+
+.wp-block-post-content .wp-block-quote__citation {
+        color: var(--ink-soft);
+        font-family: var(--font-body);
+        font-style: normal;
+        font-size: 0.875rem;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   6. Code
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content pre,
+.wp-block-post-content .wp-block-code {
+        background: var(--secondary);
+        color: var(--accent-soft);
+        padding: 1.25rem;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   7. Images & captions
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content img,
+.wp-block-post-content .wp-block-image img {
+        border-radius: 12px;
+        box-shadow: 0 8px 24px -6px rgba(30, 25, 18, 0.18);
+}
+
+.wp-block-post-content .wp-block-image figcaption,
+.wp-block-post-content figcaption {
+        color: var(--ink-soft);
+        font-size: 0.875rem;
+        font-style: italic;
+        text-align: center;
+        margin-top: 0.5rem;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   8. Separator
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content hr,
+.wp-block-post-content .wp-block-separator {
+        border: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+        margin: 2.5rem 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   9. Buttons
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content .wp-block-button__link {
+        background: var(--secondary);
+        color: var(--white);
+        border-radius: 999px;
+        padding: 0.875rem 1.75rem;
+        font-weight: 600;
+        font-size: 0.9375rem;
+}
+
+.wp-block-post-content .wp-block-button__link:hover {
+        background: var(--ink);
+}
+
+.wp-block-post-content .wp-block-button.is-style-outline .wp-block-button__link {
+        background: transparent;
+        color: var(--secondary);
+        border: 2px solid var(--secondary);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   10. Tables
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content table,
+.wp-block-post-content .wp-block-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1.5rem 0;
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px -2px rgba(30, 25, 18, 0.15);
+}
+
+.wp-block-post-content th {
+        background: var(--secondary);
+        color: var(--accent-soft);
+        padding: 0.875rem 1rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+}
+
+.wp-block-post-content td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+}
+
+.wp-block-post-content tr:last-child td {
+        border-bottom: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   11. Pullquote
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content .wp-block-pullquote {
+        border-top: 4px solid var(--accent);
+        border-bottom: 4px solid var(--accent);
+        padding: 2rem 1.5rem;
+        background: var(--base-alt);
+        border-radius: 12px;
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-style: italic;
+        color: var(--secondary);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   12. Group blocks (untuk patterns)
+═══════════════════════════════════════════════════════════════ */
+
+.wp-block-post-content .wp-block-group.has-background {
+        padding: 1.5rem;
+        border-radius: 12px;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   13. Custom block patterns (mosque-specific)
+   Class names prefixed with "akp-" (Al-Kautsar Pattern)
+═══════════════════════════════════════════════════════════════ */
+
+/* Pattern: Pengumuman Penting */
+.akp-pengumuman {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        color: var(--secondary);
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        border-left: 6px solid var(--secondary);
+        margin: 1.5rem 0;
+        box-shadow: 0 8px 24px -6px rgba(212, 175, 55, 0.45);
+}
+
+.akp-pengumuman h3,
+.akp-pengumuman h4 {
+        color: var(--secondary);
+        margin-top: 0;
+}
+
+.akp-pengumuman p {
+        color: var(--secondary);
+        font-weight: 500;
+        margin-bottom: 0;
+}
+
+/* Pattern: Kutipan Ayat */
+.akp-ayat {
+        background: var(--base-alt);
+        border: 1px solid var(--accent);
+        border-radius: 12px;
+        padding: 2rem 2.5rem;
+        margin: 2rem 0;
+        text-align: center;
+}
+
+.akp-ayat-arabic {
+        font-family: var(--font-arabic);
+        font-size: 2rem;
+        color: var(--secondary);
+        direction: rtl;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+}
+
+.akp-ayat-translation {
+        color: var(--ink);
+        font-style: italic;
+        font-size: 1.0625rem;
+        margin-bottom: 0.5rem;
+}
+
+.akp-ayat-source {
+        color: var(--accent-deep);
+        font-weight: 600;
+        font-size: 0.875rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+}
+
+/* Pattern: Card Kajian */
+.akp-card-kajian {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--accent);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        box-shadow: 0 4px 12px -2px rgba(30, 25, 18, 0.1);
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 1rem;
+        align-items: start;
+}
+
+.akp-card-kajian-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--ink) 100%);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 700;
+        border: 3px solid var(--accent);
+}
+
+.akp-card-kajian-name {
+        color: var(--secondary);
+        font-size: 1.25rem;
+        margin: 0 0 0.25rem;
+        font-family: var(--font-display);
+        font-weight: 700;
+}
+
+.akp-card-kajian-role {
+        color: var(--accent-deep);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+}
+
+.akp-card-kajian-detail {
+        color: var(--ink-soft);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+}
+
+/* Pattern: Banner Donasi */
+.akp-banner-donasi {
+        background: linear-gradient(135deg, #2A140A 0%, var(--secondary) 50%, var(--secondary-soft) 100%);
+        color: var(--white);
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        margin: 2rem 0;
+        text-align: center;
+        box-shadow: 0 12px 32px -8px rgba(30, 25, 18, 0.4);
+}
+
+.akp-banner-donasi h3,
+.akp-banner-donasi h4 {
+        color: var(--accent);
+        margin-top: 0;
+}
+
+.akp-banner-donasi p {
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 1.25rem;
+}
+
+.akp-banner-donasi .wp-block-button__link {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        color: var(--secondary);
+        font-weight: 700;
+}
+
+/* Pattern: Highlight Statistik */
+.akp-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+}
+
+.akp-stat-item {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        box-shadow: 0 2px 8px -2px rgba(30, 25, 18, 0.1);
+}
+
+.akp-stat-number {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-deep);
+        line-height: 1;
+        margin-bottom: 0.375rem;
+        display: block;
+}
+
+.akp-stat-label {
+        font-size: 0.875rem;
+        color: var(--ink-soft);
+}
+
+/* Pattern: Info Box */
+.akp-info-box {
+        background: var(--base-alt);
+        border-left: 4px solid var(--accent);
+        padding: 1.25rem 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+}
+
+.akp-info-box p {
+        margin: 0;
+        color: var(--ink);
+}
+
+/* Pattern: Galery Kegiatan */
+.akp-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.875rem;
+        margin: 2rem 0;
+}
+
+.akp-gallery-item {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px -2px rgba(30, 25, 18, 0.1);
+}
+
+.akp-gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+}
+
+.akp-gallery-caption {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        color: var(--ink-soft);
+        text-align: center;
+}
+
+/* Pattern: Jadwal Kajian Tabel */
+.akp-jadwal {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px -4px rgba(30, 25, 18, 0.15);
+        margin: 1.5rem 0;
+}
+
+.akp-jadwal-row {
+        display: grid;
+        grid-template-columns: 100px 1fr 1fr 120px;
+        gap: 1rem;
+        padding: 0.875rem 1.25rem;
+        border-bottom: 1px solid var(--line);
+        align-items: center;
+}
+
+.akp-jadwal-row:last-child {
+        border-bottom: 0;
+}
+
+.akp-jadwal-row--header {
+        background: var(--secondary);
+        color: var(--accent-soft);
+        font-weight: 600;
+        font-size: 0.8125rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+}
+
+.akp-jadwal-day {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: var(--secondary);
+        font-size: 1.0625rem;
+}
+
+.akp-jadwal-row--header .akp-jadwal-day {
+        color: var(--accent);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   14. Editor welcome banner (help text)
+═══════════════════════════════════════════════════════════════ */
+
+.editor-styles-wrapper .wp-block-post-content::before {
+        content: "📝 Mulai mengetik di sini, atau klik tombol + di atas dan pilih 'Patterns' untuk template siap pakai (Pengumuman, Ayat, Banner Donasi, dll).";
+        display: block;
+        background: var(--base-alt);
+        border-left: 4px solid var(--accent);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        font-size: 0.9375rem;
+        color: var(--ink-soft);
+        font-style: italic;
+}
+
+.editor-styles-wrapper .wp-block-post-content.is-selected::before,
+.editor-styles-wrapper .wp-block-post-content.has-child-selected::before,
+.editor-styles-wrapper .wp-block-post-content:not(:empty)::before {
+        display: none;
+}
