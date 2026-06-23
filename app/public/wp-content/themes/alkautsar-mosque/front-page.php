@@ -62,166 +62,109 @@ get_header();
         <section class="about" id="about">
                 <div class="container about__inner">
                         <div class="about__media">
-                                <div class="about__media-frame">
-                                        <?php
-                                        $about_image = get_theme_mod( 'alkautsar_hero_image' );
-                                        if ( $about_image ) {
-                                                echo '<img src="' . esc_url( $about_image ) . '" alt="' . esc_attr__( 'Masjid Al-Kautsar', 'alkautsar' ) . '" loading="lazy">';
-                                        } else {
-                                                // Decorative SVG illustration of a mosque dome.
-                                                ?>
-                                                <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-                                                        <defs>
-                                                                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                                                                        <stop offset="0%" stop-color="#F8F0DE"/>
-                                                                        <stop offset="100%" stop-color="#E8D5A8"/>
-                                                                </linearGradient>
-                                                                <linearGradient id="dome" x1="0" y1="0" x2="0" y2="1">
-                                                                        <stop offset="0%" stop-color="#D4AF37"/>
-                                                                        <stop offset="100%" stop-color="#A8862A"/>
-                                                                </linearGradient>
-                                                        </defs>
-                                                        <rect width="600" height="450" fill="url(#sky)"/>
-                                                        <!-- Minaret left -->
-                                                        <rect x="80" y="120" width="36" height="280" fill="#3B1E12"/>
-                                                        <path d="M80 120 Q98 80 116 120 Z" fill="url(#dome)"/>
-                                                        <circle cx="98" cy="80" r="6" fill="#D4AF37"/>
-                                                        <!-- Minaret right -->
-                                                        <rect x="484" y="120" width="36" height="280" fill="#3B1E12"/>
-                                                        <path d="M484 120 Q502 80 520 120 Z" fill="url(#dome)"/>
-                                                        <circle cx="502" cy="80" r="6" fill="#D4AF37"/>
-                                                        <!-- Main building -->
-                                                        <rect x="180" y="240" width="240" height="160" fill="#3B1E12"/>
-                                                        <!-- Dome -->
-                                                        <path d="M200 240 Q300 100 400 240 Z" fill="url(#dome)"/>
-                                                        <line x1="300" y1="100" x2="300" y2="60" stroke="#D4AF37" stroke-width="3"/>
-                                                        <circle cx="300" cy="55" r="8" fill="#D4AF37"/>
-                                                        <!-- Arched entrance -->
-                                                        <path d="M270 400 L270 320 Q300 280 330 320 L330 400 Z" fill="#1F0F08"/>
-                                                        <!-- Windows -->
-                                                        <rect x="210" y="280" width="20" height="40" fill="#D4AF37" opacity="0.6"/>
-                                                        <rect x="370" y="280" width="20" height="40" fill="#D4AF37" opacity="0.6"/>
-                                                </svg>
-                                                <?php
-                                        }
-                                        ?>
-                                </div>
-                                <div class="about__media-badge">
-                                        <span class="about__media-badge-number">12+</span>
-                                        <span class="about__media-badge-label"><?php esc_html_e( 'Tahun Mengabdi', 'alkautsar' ); ?></span>
-                                </div>
-                        </div>
+						<?php
+						$about_image = get_theme_mod( 'alkautsar_hero_image' );
+						if ( $about_image ) :
+							?>
+							<div class="about__media-frame">
+								<img src="<?php echo esc_url( $about_image ); ?>" alt="<?php esc_attr_e( 'Masjid Al-Kautsar', 'alkautsar' ); ?>" loading="lazy">
+							</div>
+							<div class="about__media-badge">
+								<span class="about__media-badge-number"><?php echo esc_html( get_theme_mod( 'alkautsar_about_badge_number', '12+' ) ); ?></span>
+								<span class="about__media-badge-label"><?php echo esc_html( get_theme_mod( 'alkautsar_about_badge_label', __( 'Tahun Mengabdi', 'alkautsar' ) ) ); ?></span>
+							</div>
+							<?php
+						endif;
+						?>
+					</div>
                         <div class="about__content">
-                                <p class="section-eyebrow"><?php esc_html_e( 'Tentang Kami', 'alkautsar' ); ?></p>
-                                <h2 class="section-title"><?php esc_html_e( 'Masjid Al-Kautsar — Baitullah yang Memuliakan Umat', 'alkautsar' ); ?></h2>
-                                <p class="about__lead"><?php esc_html_e( 'Masjid Al-Kautsar hadir sebagai pusat peribadatan, pendidikan, sosial, dan dakwah yang menebar rahmat bagi seluruh umat. Kami berkomitmen menjadikan rumah Allah ini sebagai tempat tumbuhnya keimanan, ilmu, dan ukhuwah.', 'alkautsar' ); ?></p>
-                                <p class="about__text"><?php esc_html_e( 'Dengan arsitektur yang megah dan nuansa kekhusyukan, masjid kami menyelenggarakan berbagai kegiatan rutin: kajian pekanan, sekolah mengaji bagi anak-anak, layanan jemput zakat, hingga program sosial untuk dhuafa. Setiap inisiatif ditujukan untuk memperkuat ukhuwah islamiyah dan menebar manfaat di tengah masyarakat.', 'alkautsar' ); ?></p>
+                                <p class="section-eyebrow"><?php echo esc_html( get_theme_mod( 'alkautsar_about_eyebrow', __( 'Tentang Kami', 'alkautsar' ) ) ); ?></p>
+                                <h2 class="section-title"><?php echo esc_html( get_theme_mod( 'alkautsar_about_title', __( 'Masjid Al-Kautsar — Baitullah yang Memuliakan Umat', 'alkautsar' ) ) ); ?></h2>
+                                <p class="about__lead"><?php echo esc_html( get_theme_mod( 'alkautsar_about_lead', __( 'Masjid Al-Kautsar hadir sebagai pusat peribadatan, pendidikan, sosial, dan dakwah yang menebar rahmat bagi seluruh umat. Kami berkomitmen menjadikan rumah Allah ini sebagai tempat tumbuhnya keimanan, ilmu, dan ukhuwah.', 'alkautsar' ) ) ); ?></p>
+                                <p class="about__text"><?php echo esc_html( get_theme_mod( 'alkautsar_about_text', __( 'Dengan arsitektur yang megah dan nuansa kekhusyukan, masjid kami menyelenggarakan berbagai kegiatan rutin: kajian pekanan, sekolah mengaji bagi anak-anak, layanan jemput zakat, hingga program sosial untuk dhuafa. Setiap inisiatif ditujukan untuk memperkuat ukhuwah islamiyah dan menebar manfaat di tengah masyarakat.', 'alkautsar' ) ) ); ?></p>
                                 <ul class="about__list">
-                                        <li>
-                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                                <?php esc_html_e( 'Kajian Islam rutin setiap pekan', 'alkautsar' ); ?>
-                                        </li>
-                                        <li>
-                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                                <?php esc_html_e( 'Taman pendidikan Al-Qur’an anak', 'alkautsar' ); ?>
-                                        </li>
-                                        <li>
-                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                                <?php esc_html_e( 'Layanan sosial & santunan dhuafa', 'alkautsar' ); ?>
-                                        </li>
-                                        <li>
-                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                                                <?php esc_html_e( 'Pelaporan keuangan transparan', 'alkautsar' ); ?>
-                                        </li>
-                                </ul>
+						<?php
+						$about_list_raw = get_theme_mod( 'alkautsar_about_list', "Kajian Islam rutin setiap pekan
+Taman pendidikan Al-Qur'an anak
+Layanan sosial & santunan dhuafa
+Pelaporan keuangan transparan" );
+						$about_items = array_filter( array_map( 'trim', explode( "
+", $about_list_raw ) ) );
+						foreach ( $about_items as $item ) :
+							?>
+							<li>
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+								<?php echo esc_html( $item ); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
                                 <a href="<?php echo esc_url( home_url( '/profil' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?></a>
                         </div>
                 </div>
         </section>
 
         <!-- ═══════════════ PROGRAMS ═══════════════ -->
-        <section class="programs" id="program">
-                <div class="container">
-                        <div class="section-head section-head--center">
-                                <p class="section-eyebrow"><?php esc_html_e( 'Program Unggulan', 'alkautsar' ); ?></p>
-                                <h2 class="section-title"><?php esc_html_e( 'Kegiatan yang Bermanfaat bagi Umat', 'alkautsar' ); ?></h2>
-                                <p class="section-desc"><?php esc_html_e( 'Beragam program yang dirancang untuk memperkuat iman, ilmu, dan ukhuwah di antara jamaah.', 'alkautsar' ); ?></p>
-                        </div>
-                        <div class="programs__grid">
-                                <article class="program-card">
-                                        <div class="program-card__icon">
-                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                                        </div>
-                                        <h3 class="program-card__title"><?php esc_html_e( 'Kajian Rutin Pekanan', 'alkautsar' ); ?></h3>
-                                        <p class="program-card__text"><?php esc_html_e( 'Pengajian tafsir, fiqih, dan akidah bersama para asatidz setiap ba’da Maghrib.', 'alkautsar' ); ?></p>
-                                        <a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
-                                                <?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
-                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </a>
-                                </article>
+	<section class="programs" id="program">
+		<div class="container">
+			<div class="section-head section-head--center">
+				<p class="section-eyebrow"><?php esc_html_e( 'Program Unggulan', 'alkautsar' ); ?></p>
+				<h2 class="section-title"><?php esc_html_e( 'Program yang Bermanfaat bagi Umat', 'alkautsar' ); ?></h2>
+				<p class="section-desc"><?php esc_html_e( 'Beragam program yang dirancang untuk memperkuat iman, ilmu, dan ukhuwah di antara jamaah.', 'alkautsar' ); ?></p>
+			</div>
+			<div class="programs__grid">
+				<?php
+				$home_programs = new WP_Query( array(
+					'post_type'      => 'program',
+					'posts_per_page' => 6,
+					'no_found_rows'  => true,
+				) );
 
-                                <article class="program-card">
-                                        <div class="program-card__icon">
-                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                                        </div>
-                                        <h3 class="program-card__title"><?php esc_html_e( 'Taman Pendidikan Al-Qur’an', 'alkautsar' ); ?></h3>
-                                        <p class="program-card__text"><?php esc_html_e( 'Pendidikan mengaji dan akhlak untuk anak-anak usia 4–12 tahun setiap sore.', 'alkautsar' ); ?></p>
-                                        <a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
-                                                <?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
-                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </a>
-                                </article>
-
-                                <article class="program-card">
-                                        <div class="program-card__icon">
-                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                                        </div>
-                                <h3 class="program-card__title"><?php esc_html_e( 'Santunan Dhuafa & Yatim', 'alkautsar' ); ?></h3>
-                                        <p class="program-card__text"><?php esc_html_e( 'Program rutin santunan bulanan bagi dhuafa, anak yatim, dan kaum duafa.', 'alkautsar' ); ?></p>
-                                        <a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
-                                                <?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
-                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </a>
-                                </article>
-
-                                <article class="program-card">
-                                        <div class="program-card__icon">
-                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                        </div>
-                                        <h3 class="program-card__title"><?php esc_html_e( 'Jumat Berkah', 'alkautsar' ); ?></h3>
-                                        <p class="program-card__text"><?php esc_html_e( 'Aksi sosial nasi kotak untuk pekerja dan musafir setiap hari Jumat.', 'alkautsar' ); ?></p>
-                                        <a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
-                                                <?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
-                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </a>
-                                </article>
-
-                                <article class="program-card">
-                                        <div class="program-card__icon">
-                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                                        </div>
-                                        <h3 class="program-card__title"><?php esc_html_e( 'Pelatihan Kepemudaan', 'alkautsar' ); ?></h3>
-                                        <p class="program-card__text"><?php esc_html_e( 'Pengembangan keterampilan dan kepemimpinan remaja masjid (risma).', 'alkautsar' ); ?></p>
-                                        <a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
-                                                <?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
-                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </a>
-                                </article>
-
-                                <article class="program-card">
-                                        <div class="program-card__icon">
-                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                                        </div>
-                                        <h3 class="program-card__title"><?php esc_html_e( 'Konsultasi Syariah', 'alkautsar' ); ?></h3>
-                                        <p class="program-card__text"><?php esc_html_e( 'Layanan tanya jawab dan konsultasi syariah bersama Dewan Syariah masjid.', 'alkautsar' ); ?></p>
-                                        <a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
-                                                <?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
-                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </a>
-                                </article>
-                        </div>
-                </div>
-        </section>
+				if ( $home_programs->have_posts() ) :
+					while ( $home_programs->have_posts() ) : $home_programs->the_post();
+						$icon = get_post_meta( get_the_ID(), 'alkautsar_program_icon', true ) ?: 'book';
+						?>
+						<article <?php post_class( 'program-card' ); ?>>
+							<div class="program-card__icon">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><?php echo alkautsar_program_icon_svg( $icon ); // phpcs:ignore ?></svg>
+							</div>
+							<h3 class="program-card__title"><?php the_title(); ?></h3>
+							<p class="program-card__text"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 22, '…' ) ); ?></p>
+							<a href="<?php the_permalink(); ?>" class="program-card__link">
+								<?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+							</a>
+						</article>
+					<?php endwhile; wp_reset_postdata();
+				else :
+					// Fallback demo cards — link tetap ke /program archive.
+					$demo_programs = array(
+						array( 'Kajian Rutin Pekanan', 'Pengajian tafsir, fiqih, dan akidah bersama para asatidz setiap ba\'da Maghrib.', 'book' ),
+						array( 'Taman Pendidikan Al-Qur\'an', 'Pendidikan mengaji dan akhlak untuk anak-anak usia 4-12 tahun setiap sore.', 'graduation' ),
+						array( 'Santunan Dhuafa & Yatim', 'Program rutin santunan bulanan bagi dhuafa, anak yatim, dan kaum duafa.', 'heart' ),
+						array( 'Jumat Berkah', 'Aksi sosial nasi kotak untuk pekerja dan musafir setiap hari Jumat.', 'users' ),
+						array( 'Pelatihan Kepemudaan', 'Pengembangan keterampilan dan kepemimpinan remaja masjid (risma).', 'cube' ),
+						array( 'Konsultasi Syariah', 'Layanan tanya jawab dan konsultasi syariah bersama Dewan Syariah masjid.', 'info' ),
+					);
+					foreach ( $demo_programs as $p ) :
+						list( $title, $desc, $icon ) = $p;
+						?>
+						<article class="program-card program-card--demo">
+							<div class="program-card__icon">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><?php echo alkautsar_program_icon_svg( $icon ); // phpcs:ignore ?></svg>
+							</div>
+							<h3 class="program-card__title"><?php echo esc_html( $title ); ?></h3>
+							<p class="program-card__text"><?php echo esc_html( $desc ); ?></p>
+							<a href="<?php echo esc_url( home_url( '/program' ) ); ?>" class="program-card__link">
+								<?php esc_html_e( 'Selengkapnya', 'alkautsar' ); ?>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+							</a>
+						</article>
+					<?php endforeach;
+				endif;
+				?>
+			</div>
+		</div>
+	</section>
 
         <!-- ═══════════════ UPCOMING EVENTS / KEGIATAN MENDATANG ═══════════════ -->
         <section class="events" id="kegiatan-mendatang">
@@ -527,24 +470,25 @@ get_header();
                 <div class="container">
                         <div class="transparency__inner">
                                 <div class="transparency__content">
-                                        <p class="section-eyebrow"><?php esc_html_e( 'Transparansi Donasi', 'alkautsar' ); ?></p>
-                                        <h2 class="section-title"><?php esc_html_e( 'Amanah Anda, Kami Jaga dengan Terbuka', 'alkautsar' ); ?></h2>
-                                        <p class="transparency__text"><?php esc_html_e( 'Setiap donasi yang masuk dicatat, dikelola, dan dilaporkan secara terbuka. Kami percaya transparansi adalah bentuk amanah dan jaminan keberkahan setiap rupiah yang Anda titipkan untuk umat.', 'alkautsar' ); ?></p>
+                                        <p class="section-eyebrow"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_eyebrow', __( 'Transparansi Donasi', 'alkautsar' ) ) ); ?></p>
+                                        <h2 class="section-title"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_title', __( 'Amanah Anda, Kami Jaga dengan Terbuka', 'alkautsar' ) ) ); ?></h2>
+                                        <p class="transparency__text"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_text', __( 'Setiap donasi yang masuk dicatat, dikelola, dan dilaporkan secara terbuka. Kami percaya transparansi adalah bentuk amanah dan jaminan keberkahan setiap rupiah yang Anda titipkan untuk umat.', 'alkautsar' ) ) ); ?></p>
                                         <div class="transparency__stats">
-                                                <div class="transparency__stat">
-                                                        <span class="transparency__stat-number">Rp 248jt</span>
-                                                        <span class="transparency__stat-label"><?php esc_html_e( 'Donasi Tahun Ini', 'alkautsar' ); ?></span>
-                                                </div>
-                                                <div class="transparency__stat">
-                                                        <span class="transparency__stat-number">1.284</span>
-                                                        <span class="transparency__stat-label"><?php esc_html_e( 'Donatur', 'alkautsar' ); ?></span>
-                                                </div>
-                                                <div class="transparency__stat">
-                                                        <span class="transparency__stat-number">37</span>
-                                                        <span class="transparency__stat-label"><?php esc_html_e( 'Program Terealisasi', 'alkautsar' ); ?></span>
-                                                </div>
-                                        </div>
-                                        <a href="<?php echo esc_url( home_url( '/transparansi' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Lihat Laporan Keuangan', 'alkautsar' ); ?></a>
+						<div class="transparency__stat">
+							<span class="transparency__stat-number"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat1_value', 'Rp 248jt' ) ); ?></span>
+							<span class="transparency__stat-label"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat1_label', __( 'Donasi Tahun Ini', 'alkautsar' ) ) ); ?></span>
+						</div>
+						<div class="transparency__stat">
+							<span class="transparency__stat-number"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat2_value', '1.284' ) ); ?></span>
+							<span class="transparency__stat-label"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat2_label', __( 'Donatur', 'alkautsar' ) ) ); ?></span>
+						</div>
+						<div class="transparency__stat">
+							<span class="transparency__stat-number"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat3_value', '37' ) ); ?></span>
+							<span class="transparency__stat-label"><?php echo esc_html( get_theme_mod( 'alkautsar_transparency_stat3_label', __( 'Program Terealisasi', 'alkautsar' ) ) ); ?></span>
+						</div>
+					</div>
+				</div>
+				<a href="<?php echo esc_url( home_url( '/transparansi' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Lihat Laporan Keuangan', 'alkautsar' ); ?></a>
                                 </div>
                                 <div class="transparency__visual">
                                         <div class="transparency__chart" aria-hidden="true">

@@ -14,8 +14,6 @@ $total_expense = get_theme_mod( 'alkautsar_finance_total_expense', '0' );
 $finance_year  = get_theme_mod( 'alkautsar_finance_year', gmdate( 'Y' ) );
 $balance       = (float) preg_replace( '/[^0-9]/', '', $total_income ) - (float) preg_replace( '/[^0-9]/', '', $total_expense );
 
-$beneficiary_counts = alkautsar_get_beneficiary_counts();
-$total_beneficiaries = array_sum( $beneficiary_counts );
 $reports = alkautsar_get_financial_reports( 12 );
 ?>
 
@@ -53,62 +51,6 @@ $reports = alkautsar_get_financial_reports( 12 );
                                 <p class="finance-summary__sub"><?php esc_html_e( 'Dialokasikan untuk kebutuhan mendesak', 'alkautsar' ); ?></p>
                         </div>
                 </div>
-
-                <!-- Beneficiaries -->
-                <section style="margin-top:4rem;">
-                        <div class="section-head section-head--center">
-                                <p class="section-eyebrow"><?php esc_html_e( 'Penerima Manfaat', 'alkautsar' ); ?></p>
-                                <h2 class="section-title"><?php esc_html_e( 'Data Penerima Santunan', 'alkautsar' ); ?></h2>
-                                <p class="section-desc"><?php esc_html_e( 'Untuk melindungi privasi, sebagian nama ditulis dalam inisial.', 'alkautsar' ); ?></p>
-                        </div>
-
-                        <div class="beneficiary-stats">
-                                <?php
-                                $cat_labels = alkautsar_beneficiary_categories();
-                                foreach ( $beneficiary_counts as $cat => $count ) :
-                                        ?>
-                                        <div class="beneficiary-stat beneficiary-stat--<?php echo esc_attr( $cat ); ?>">
-                                                <span class="beneficiary-stat__number"><?php echo esc_html( $count ); ?></span>
-                                                <span class="beneficiary-stat__label"><?php echo esc_html( $cat_labels[ $cat ] ); ?></span>
-                                        </div>
-                                <?php endforeach; ?>
-                        </div>
-
-                        <?php
-                        // Tampilkan daftar beneficiaries per kategori (hanya yang ada datanya).
-                        foreach ( $beneficiary_counts as $cat => $count ) :
-                                if ( $count === 0 ) { continue; }
-                                $q = alkautsar_get_beneficiaries( $cat, 50 );
-                                if ( ! $q->have_posts() ) { continue; }
-                                ?>
-                                <div class="beneficiary-list">
-                                        <h3 class="beneficiary-list__title"><?php echo esc_html( $cat_labels[ $cat ] ); ?> (<?php echo esc_html( $count ); ?>)</h3>
-                                        <div class="beneficiary-list__grid">
-                                                <?php while ( $q->have_posts() ) : $q->the_post(); 
-                                                        $age = get_post_meta( get_the_ID(), 'alkautsar_beneficiary_age', true );
-                                                        $aid = get_post_meta( get_the_ID(), 'alkautsar_beneficiary_aid', true );
-                                                        ?>
-                                                        <div class="beneficiary-item">
-                                                                <div class="beneficiary-item__avatar">
-                                                                        <?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'thumbnail' ); } else { echo esc_html( strtoupper( substr( get_the_title(), 0, 1 ) ) ); } ?>
-                                                                </div>
-                                                                <div class="beneficiary-item__info">
-                                                                        <p class="beneficiary-item__name"><?php the_title(); ?></p>
-                                                                        <?php if ( $age ) : ?><span class="beneficiary-item__age"><?php echo esc_html( sprintf( __( '%s tahun', 'alkautsar' ), $age ) ); ?></span><?php endif; ?>
-                                                                        <?php if ( $aid ) : ?><p class="beneficiary-item__aid"><?php echo esc_html( $aid ); ?></p><?php endif; ?>
-                                                                </div>
-                                                        </div>
-                                                <?php endwhile; wp_reset_postdata(); ?>
-                                        </div>
-                                </div>
-                        <?php endforeach; ?>
-
-                        <?php if ( $total_beneficiaries === 0 ) : ?>
-                                <p style="text-align:center; padding:3rem; color: var(--ink-soft); background: var(--base-alt); border-radius: var(--radius-lg);">
-                                        <?php esc_html_e( 'Belum ada data penerima manfaat. Admin dapat menambahkannya dari dashboard → Penerima Manfaat.', 'alkautsar' ); ?>
-                                </p>
-                        <?php endif; ?>
-                </section>
 
                 <!-- Financial Reports -->
                 <section style="margin-top:4rem;">

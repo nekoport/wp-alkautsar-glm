@@ -90,8 +90,8 @@ function alkautsar_scripts() {
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
                 'nonce'   => wp_create_nonce( 'alkautsar_prayer_nonce' ),
                 // Jakarta, Indonesia — user can override via Customizer.
-                'lat'     => get_theme_mod( 'alkautsar_latitude', '-6.2088' ),
-                'lng'     => get_theme_mod( 'alkautsar_longitude', '106.8456' ),
+                'lat'     => get_theme_mod( 'alkautsar_latitude', get_theme_mod( 'alkautsar_map_lat', '-6.2088' ) ),
+                'lng'     => get_theme_mod( 'alkautsar_longitude', get_theme_mod( 'alkautsar_map_lng', '106.8456' ) ),
                 'tz'      => get_theme_mod( 'alkautsar_timezone', 'Asia/Jakarta' ),
                 'method'  => get_theme_mod( 'alkautsar_prayer_method', '20' ), // Kemenag RI
                 'i18n'    => array(
@@ -210,6 +210,8 @@ require ALKAUTSAR_DIR . '/inc/events.php';
 require ALKAUTSAR_DIR . '/inc/beneficiaries.php';
 require ALKAUTSAR_DIR . '/inc/financial-reports.php';
 require ALKAUTSAR_DIR . '/inc/programs.php';
+require ALKAUTSAR_DIR . '/inc/dkm.php';
+require ALKAUTSAR_DIR . '/inc/admin-settings.php';
 
 /**
  * Register Block Pattern category for mosque-specific patterns.

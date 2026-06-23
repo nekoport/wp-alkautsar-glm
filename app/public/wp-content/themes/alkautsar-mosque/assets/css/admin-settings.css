@@ -1,0 +1,197 @@
+/* Al-Kautsar Settings Admin Page Styles */
+
+.alkautsar-settings-page {
+	max-width: 1100px;
+}
+
+.alkautsar-settings-page h1 {
+	color: #3B1E12;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 28px;
+	border-bottom: 2px solid #D4AF37;
+	padding-bottom: 12px;
+	margin-bottom: 16px;
+}
+
+.alkautsar-settings-page .alkautsar-settings-desc {
+	font-size: 14px;
+	color: #555;
+	max-width: 800px;
+	margin-bottom: 16px;
+}
+
+.alkautsar-settings-page .form-table {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 8px 24px;
+	margin-top: 16px;
+}
+
+.alkautsar-settings-page .form-table th {
+	width: 280px;
+	padding: 20px 10px 20px 0;
+	vertical-align: top;
+	color: #3B1E12;
+	font-weight: 600;
+}
+
+.alkautsar-settings-page .form-table td {
+	padding: 20px 10px;
+}
+
+.alkautsar-settings-page .form-table input[type="text"],
+.alkautsar-settings-page .form-table input[type="email"],
+.alkautsar-settings-page .form-table input[type="url"],
+.alkautsar-settings-page .form-table input[type="number"],
+.alkautsar-settings-page .form-table textarea,
+.alkautsar-settings-page .form-table select {
+	border: 1px solid #d0d0d0;
+	border-radius: 4px;
+	padding: 8px 12px;
+	font-size: 14px;
+	background: #fff;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	width: 100%;
+	max-width: 500px;
+}
+
+.alkautsar-settings-page .form-table input:focus,
+.alkautsar-settings-page .form-table textarea:focus,
+.alkautsar-settings-page .form-table select:focus {
+	border-color: #D4AF37;
+	box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+	outline: none;
+}
+
+.alkautsar-settings-page .form-table textarea {
+	resize: vertical;
+}
+
+.alkautsar-settings-page .description {
+	font-size: 12px;
+	color: #666;
+	margin-top: 4px;
+}
+
+.alkautsar-section-title {
+	color: #3B1E12;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 18px;
+	padding-top: 16px;
+	margin-top: 16px !important;
+	border-top: 1px solid #eee;
+}
+
+.alkautsar-settings-page .button-primary.large,
+.alkautsar-settings-page .button-primary.button-large {
+	background: #3B1E12;
+	border-color: #3B1E12;
+	font-weight: 600;
+	padding: 8px 32px;
+	height: auto;
+	font-size: 14px;
+}
+
+.alkautsar-settings-page .button-primary.large:hover,
+.alkautsar-settings-page .button-primary.button-large:hover {
+	background: #2A140A;
+	border-color: #2A140A;
+}
+
+/* Image upload field */
+.alkautsar-image-row {
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+}
+
+.alkautsar-image-preview {
+	width: 150px;
+	height: 100px;
+	background: #FAF7EF;
+	border: 2px dashed #D4AF37;
+	border-radius: 6px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.alkautsar-image-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.alkautsar-image-empty {
+	font-size: 11px;
+	color: #999;
+}
+
+.alkautsar-image-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: flex-start;
+}
+
+.alkautsar-image-actions .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.alkautsar-image-actions .dashicons {
+	vertical-align: middle;
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* Saldo display */
+.alkautsar-saldo-display {
+	font-size: 28px;
+	font-weight: 700;
+	font-family: Georgia, "Times New Roman", serif;
+	margin: 0;
+	line-height: 1.2;
+}
+
+/* Tip box */
+.alkautsar-tip-box {
+	margin-top: 24px;
+	padding: 16px 20px;
+	background: #F1E7D2;
+	border-left: 4px solid #D4AF37;
+	border-radius: 4px;
+}
+
+.alkautsar-tip-box h4 {
+	margin: 0 0 8px;
+	color: #3B1E12;
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+.alkautsar-tip-box p {
+	margin: 0;
+	font-size: 13px;
+	color: #3B1E12;
+	line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+	.alkautsar-settings-page .form-table th {
+		width: auto;
+		padding-bottom: 4px;
+	}
+	.alkautsar-image-row {
+		flex-direction: column;
+	}
+	.alkautsar-image-preview {
+		width: 100%;
+		max-width: 200px;
+	}
+}

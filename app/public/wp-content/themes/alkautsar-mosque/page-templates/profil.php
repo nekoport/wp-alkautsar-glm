@@ -21,117 +21,133 @@ $hero_img  = get_theme_mod( 'alkautsar_hero_image' );
 ?>
 
 <header class="page-header">
-	<div class="container">
-		<h1><?php esc_html_e( 'Profil Masjid Al-Kautsar', 'alkautsar' ); ?></h1>
-		<p class="breadcrumb"><?php esc_html_e( 'Mengenal lebih dekat sejarah, visi, misi, dan pengurus masjid.', 'alkautsar' ); ?></p>
-	</div>
+        <div class="container">
+                <h1><?php esc_html_e( 'Profil Masjid Al-Kautsar', 'alkautsar' ); ?></h1>
+                <p class="breadcrumb"><?php esc_html_e( 'Mengenal lebih dekat sejarah, visi, misi, dan pengurus masjid.', 'alkautsar' ); ?></p>
+        </div>
 </header>
 
 <main id="primary" class="site-main">
-	<div class="container page-content">
+        <div class="container page-content">
 
-		<!-- Sejarah -->
-		<section class="profile-section">
-			<div class="profile-section__inner">
-				<div class="profile-section__media">
-					<div class="about__media-frame" style="aspect-ratio: 4/3;">
-						<?php if ( $hero_img ) : ?>
-							<img src="<?php echo esc_url( $hero_img ); ?>" alt="<?php esc_attr_e( 'Masjid Al-Kautsar', 'alkautsar' ); ?>" loading="lazy">
-						<?php else : ?>
-							<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-								<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8F0DE"/><stop offset="100%" stop-color="#E8D5A8"/></linearGradient></defs>
-								<rect width="600" height="450" fill="url(#sky)"/>
-								<rect x="80" y="120" width="36" height="280" fill="#3B1E12"/>
-								<rect x="484" y="120" width="36" height="280" fill="#3B1E12"/>
-								<rect x="180" y="240" width="240" height="160" fill="#3B1E12"/>
-								<path d="M200 240 Q300 100 400 240 Z" fill="#D4AF37"/>
-								<line x1="300" y1="100" x2="300" y2="60" stroke="#D4AF37" stroke-width="3"/>
-								<circle cx="300" cy="55" r="8" fill="#D4AF37"/>
-								<path d="M270 400 L270 320 Q300 280 330 320 L330 400 Z" fill="#1F0F08"/>
-							</svg>
-						<?php endif; ?>
-					</div>
-				</div>
-				<div class="profile-section__content">
-					<p class="section-eyebrow"><?php esc_html_e( 'Sejarah Singkat', 'alkautsar' ); ?></p>
-					<h2 class="section-title"><?php esc_html_e( 'Perjalanan Masjid Al-Kautsar', 'alkautsar' ); ?></h2>
-					<p style="font-size:1.0625rem; line-height:1.75; color: var(--ink);"><?php echo wp_kses_post( wpautop( $history ) ); ?></p>
-				</div>
-			</div>
-		</section>
+                <!-- Sejarah -->
+                <section class="profile-section">
+                        <div class="profile-section__inner">
+                                <div class="profile-section__media">
+                                        <?php if ( $hero_img ) : ?>
+                                                <div class="about__media-frame" style="aspect-ratio: 4/3;">
+                                                        <img src="<?php echo esc_url( $hero_img ); ?>" alt="<?php esc_attr_e( 'Masjid Al-Kautsar', 'alkautsar' ); ?>" loading="lazy">
+                                                </div>
+                                        <?php endif; ?>
+                                </div>
+                                <div class="profile-section__content">
+                                        <p class="section-eyebrow"><?php esc_html_e( 'Sejarah Singkat', 'alkautsar' ); ?></p>
+                                        <h2 class="section-title"><?php esc_html_e( 'Perjalanan Masjid Al-Kautsar', 'alkautsar' ); ?></h2>
+                                        <p style="font-size:1.0625rem; line-height:1.75; color: var(--ink);"><?php echo wp_kses_post( wpautop( $history ) ); ?></p>
+                                </div>
+                        </div>
+                </section>
 
-		<!-- Visi & Misi -->
-		<section class="profile-section profile-section--alt">
-			<div class="container">
-				<div class="section-head section-head--center">
-					<p class="section-eyebrow"><?php esc_html_e( 'Arah & Tujuan', 'alkautsar' ); ?></p>
-					<h2 class="section-title"><?php esc_html_e( 'Visi & Misi', 'alkautsar' ); ?></h2>
-				</div>
-				<div class="vision-mission">
-					<div class="vision-mission__card vision-mission__card--vision">
-						<div class="vision-mission__icon">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
-						</div>
-						<h3><?php esc_html_e( 'Visi', 'alkautsar' ); ?></h3>
-						<p><?php echo esc_html( $vision ); ?></p>
-					</div>
-					<div class="vision-mission__card vision-mission__card--mission">
-						<div class="vision-mission__icon">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-						</div>
-						<h3><?php esc_html_e( 'Misi', 'alkautsar' ); ?></h3>
-						<ul>
-							<?php
-							$lines = array_filter( array_map( 'trim', explode( "\n", $mission ) ) );
-							foreach ( $lines as $line ) {
-								echo '<li>' . esc_html( $line ) . '</li>';
-							}
-							?>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
+                <!-- Visi & Misi -->
+                <section class="profile-section profile-section--alt">
+                        <div class="container">
+                                <div class="section-head section-head--center">
+                                        <p class="section-eyebrow"><?php esc_html_e( 'Arah & Tujuan', 'alkautsar' ); ?></p>
+                                        <h2 class="section-title"><?php esc_html_e( 'Visi & Misi', 'alkautsar' ); ?></h2>
+                                </div>
+                                <div class="vision-mission">
+                                        <div class="vision-mission__card vision-mission__card--vision">
+                                                <div class="vision-mission__icon">
+                                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                                                </div>
+                                                <h3><?php esc_html_e( 'Visi', 'alkautsar' ); ?></h3>
+                                                <p><?php echo esc_html( $vision ); ?></p>
+                                        </div>
+                                        <div class="vision-mission__card vision-mission__card--mission">
+                                                <div class="vision-mission__icon">
+                                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                                </div>
+                                                <h3><?php esc_html_e( 'Misi', 'alkautsar' ); ?></h3>
+                                                <ul>
+                                                        <?php
+                                                        $lines = array_filter( array_map( 'trim', explode( "\n", $mission ) ) );
+                                                        foreach ( $lines as $line ) {
+                                                                echo '<li>' . esc_html( $line ) . '</li>';
+                                                        }
+                                                        ?>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
 
-		<!-- DKM -->
-		<section class="profile-section">
-			<div class="container">
-				<div class="section-head section-head--center">
-					<p class="section-eyebrow"><?php esc_html_e( 'Struktur Pengurus', 'alkautsar' ); ?></p>
-					<h2 class="section-title"><?php esc_html_e( 'Dewan Kemakmuran Masjid (DKM)', 'alkautsar' ); ?></h2>
-				</div>
-				<div class="dkm-grid">
-					<?php
-					$dkm = array(
-						array( 'ketua', $chairman, __( 'Ketua DKM', 'alkautsar' ), 'crown' ),
-						array( 'sekretaris', $secretary, __( 'Sekretaris', 'alkautsar' ), 'pen' ),
-						array( 'bendahara', $treasurer, __( 'Bendahara', 'alkautsar' ), 'wallet' ),
-						array( 'imam', $imam, __( 'Imam Masjid', 'alkautsar' ), 'star' ),
-					);
-					foreach ( $dkm as $member ) :
-						list( $slug, $name, $role, $icon ) = $member;
-						if ( ! $name ) { continue; }
-						?>
-						<div class="dkm-card">
-							<div class="dkm-card__avatar">
-								<?php echo esc_html( strtoupper( substr( $name, 0, 1 ) ) ); ?>
-							</div>
-							<h3 class="dkm-card__name"><?php echo esc_html( $name ); ?></h3>
-							<p class="dkm-card__role"><?php echo esc_html( $role ); ?></p>
-						</div>
-					<?php endforeach; ?>
-				</div>
+                <!-- DKM -->
+                <section class="profile-section">
+                        <div class="container">
+                                <div class="section-head section-head--center">
+                                        <p class="section-eyebrow"><?php esc_html_e( 'Struktur Pengurus', 'alkautsar' ); ?></p>
+                                        <h2 class="section-title"><?php esc_html_e( 'Dewan Kemakmuran Masjid (DKM)', 'alkautsar' ); ?></h2>
+                                </div>
+                                <div class="dkm-grid">
+                                        <?php
+                                        $dkm_query = alkautsar_get_dkm_members();
+                                        $roles = alkautsar_dkm_roles();
 
-				<?php if ( $extra ) : ?>
-					<div class="dkm-extra">
-						<h3 style="text-align:center; margin-bottom:1rem;"><?php esc_html_e( 'Pengurus Bidang Lain', 'alkautsar' ); ?></h3>
-						<?php echo wp_kses_post( wpautop( $extra ) ); ?>
-					</div>
-				<?php endif; ?>
-			</div>
-		</section>
+                                        if ( $dkm_query->have_posts() ) :
+                                                while ( $dkm_query->have_posts() ) : $dkm_query->the_post();
+                                                        $role_slug = get_post_meta( get_the_ID(), 'alkautsar_dkm_role', true );
+                                                        $role_label = isset( $roles[ $role_slug ] ) ? $roles[ $role_slug ] : $role_slug;
+                                                        $bio = get_post_meta( get_the_ID(), 'alkautsar_dkm_bio', true );
+                                                        ?>
+                                                        <div class="dkm-card">
+                                                                <div class="dkm-card__avatar">
+                                                                        <?php if ( has_post_thumbnail() ) : ?>
+                                                                                <?php the_post_thumbnail( 'medium', array( 'loading' => 'lazy' ) ); ?>
+                                                                        <?php else : ?>
+                                                                                <span class="dkm-card__avatar-initial"><?php echo esc_html( strtoupper( substr( get_the_title(), 0, 1 ) ) ); ?></span>
+                                                                        <?php endif; ?>
+                                                                </div>
+                                                                <h3 class="dkm-card__name"><?php the_title(); ?></h3>
+                                                                <p class="dkm-card__role"><?php echo esc_html( $role_label ); ?></p>
+                                                                <?php if ( $bio ) : ?>
+                                                                        <p class="dkm-card__bio"><?php echo esc_html( $bio ); ?></p>
+                                                                <?php endif; ?>
+                                                        </div>
+                                                <?php endwhile; wp_reset_postdata();
+                                        else :
+                                                // Fallback: pakai data dari Customizer (jika admin belum tambah DKM member via dashboard).
+                                                $dkm = array(
+                                                        array( 'ketua', $chairman, __( 'Ketua DKM', 'alkautsar' ) ),
+                                                        array( 'sekretaris', $secretary, __( 'Sekretaris', 'alkautsar' ) ),
+                                                        array( 'bendahara', $treasurer, __( 'Bendahara', 'alkautsar' ) ),
+                                                        array( 'imam', $imam, __( 'Imam Masjid', 'alkautsar' ) ),
+                                                );
+                                                foreach ( $dkm as $member ) :
+                                                        list( $slug, $name, $role ) = $member;
+                                                        if ( ! $name ) { continue; }
+                                                        ?>
+                                                        <div class="dkm-card">
+                                                                <div class="dkm-card__avatar">
+                                                                        <span class="dkm-card__avatar-initial"><?php echo esc_html( strtoupper( substr( $name, 0, 1 ) ) ); ?></span>
+                                                                </div>
+                                                                <h3 class="dkm-card__name"><?php echo esc_html( $name ); ?></h3>
+                                                                <p class="dkm-card__role"><?php echo esc_html( $role ); ?></p>
+                                                        </div>
+                                                <?php endforeach;
+                                        endif;
+                                        ?>
+                                </div>
 
-	</div>
+                                <?php if ( $extra ) : ?>
+                                        <div class="dkm-extra">
+                                                <h3 style="text-align:center; margin-bottom:1rem;"><?php esc_html_e( 'Pengurus Bidang Lain', 'alkautsar' ); ?></h3>
+                                                <?php echo wp_kses_post( wpautop( $extra ) ); ?>
+                                        </div>
+                                <?php endif; ?>
+                        </div>
+                </section>
+
+        </div>
 </main>
 
 <?php get_footer(); ?>
