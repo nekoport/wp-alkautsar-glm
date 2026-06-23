@@ -12,11 +12,6 @@ get_header();
 $history   = get_theme_mod( 'alkautsar_profile_history' );
 $vision    = get_theme_mod( 'alkautsar_vision' );
 $mission   = get_theme_mod( 'alkautsar_mission' );
-$chairman  = get_theme_mod( 'alkautsar_dkm_chairman' );
-$secretary = get_theme_mod( 'alkautsar_dkm_secretary' );
-$treasurer = get_theme_mod( 'alkautsar_dkm_treasurer' );
-$imam      = get_theme_mod( 'alkautsar_dkm_imam' );
-$extra     = get_theme_mod( 'alkautsar_dkm_extra' );
 $hero_img  = get_theme_mod( 'alkautsar_hero_image' );
 ?>
 
@@ -115,35 +110,15 @@ $hero_img  = get_theme_mod( 'alkautsar_hero_image' );
                                                         </div>
                                                 <?php endwhile; wp_reset_postdata();
                                         else :
-                                                // Fallback: pakai data dari Customizer (jika admin belum tambah DKM member via dashboard).
-                                                $dkm = array(
-                                                        array( 'ketua', $chairman, __( 'Ketua DKM', 'alkautsar' ) ),
-                                                        array( 'sekretaris', $secretary, __( 'Sekretaris', 'alkautsar' ) ),
-                                                        array( 'bendahara', $treasurer, __( 'Bendahara', 'alkautsar' ) ),
-                                                        array( 'imam', $imam, __( 'Imam Masjid', 'alkautsar' ) ),
-                                                );
-                                                foreach ( $dkm as $member ) :
-                                                        list( $slug, $name, $role ) = $member;
-                                                        if ( ! $name ) { continue; }
-                                                        ?>
-                                                        <div class="dkm-card">
-                                                                <div class="dkm-card__avatar">
-                                                                        <span class="dkm-card__avatar-initial"><?php echo esc_html( strtoupper( substr( $name, 0, 1 ) ) ); ?></span>
-                                                                </div>
-                                                                <h3 class="dkm-card__name"><?php echo esc_html( $name ); ?></h3>
-                                                                <p class="dkm-card__role"><?php echo esc_html( $role ); ?></p>
-                                                        </div>
-                                                <?php endforeach;
+                                                // Belum ada anggota DKM di database.
+                                                ?>
+                                                <p style="text-align:center; padding:3rem; color: var(--ink-soft); background: var(--base-alt); border-radius: var(--radius-lg); grid-column:1/-1;">
+                                                        <?php esc_html_e( 'Belum ada data pengurus DKM. Admin dapat menambahkannya dari menu "Pengurus DKM" di dashboard.', 'alkautsar' ); ?>
+                                                </p>
+                                        <?php
                                         endif;
                                         ?>
                                 </div>
-
-                                <?php if ( $extra ) : ?>
-                                        <div class="dkm-extra">
-                                                <h3 style="text-align:center; margin-bottom:1rem;"><?php esc_html_e( 'Pengurus Bidang Lain', 'alkautsar' ); ?></h3>
-                                                <?php echo wp_kses_post( wpautop( $extra ) ); ?>
-                                        </div>
-                                <?php endif; ?>
                         </div>
                 </section>
 

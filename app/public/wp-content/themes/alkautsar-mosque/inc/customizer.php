@@ -2,9 +2,15 @@
 /**
  * Theme Customizer — minimal version.
  *
- * Hanya berisi pengaturan teknis (Prayer Times coordinates & calculation method).
- * Pengaturan konten masjid (profil, donasi, kontak, keuangan, hero) sudah dipindah
- * ke menu admin terpisah (lihat inc/admin-settings.php) yang lebih ramah pengurus.
+ * Customizer sekarang HANYA berisi pengaturan bawaan WordPress:
+ *   - Site Identity (logo, judul, deskripsi)
+ *   - Colors, Header Image, Background Image
+ *   - Additional CSS
+ *   - Menus, Widgets
+ *
+ * Semua pengaturan masjid (profil, donasi, kontak, keuangan, hero, tentang, transparansi,
+ * koordinat lokasi, jadwal sholat) sudah dipindah ke menu admin terpisah di sidebar.
+ * Lihat inc/admin-settings.php untuk detail.
  *
  * @package AlKautsar
  */
@@ -14,70 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register customizer — minimal, hanya prayer times settings.
+ * Register customizer — kosong, semua setting sudah dipindah ke admin menu.
+ * Function ini tetap ada untuk backward compatibility.
  */
 function alkautsar_customize_register( $wp_customize ) {
-
-	// ─── Panel: Mosque Information ───────────────────────────────────────
-	$wp_customize->add_panel( 'alkautsar_mosque', array(
+	// Tambah section info yang menjelaskan pengaturan sudah dipindah.
+	$wp_customize->add_section( 'alkautsar_info', array(
 		'title'    => __( 'Pengaturan Masjid', 'alkautsar' ),
 		'priority' => 30,
-	) );
-
-	// ── Section: Prayer Times ──
-	// Section ini dipertahankan di Customizer karena terkait konfigurasi teknis API
-	// (koordinat & metode perhitungan). Untuk koordinat peta lokasi, gunakan menu
-	// "Pengaturan Kontak" di sidebar admin.
-	$wp_customize->add_section( 'alkautsar_prayer', array(
-		'title' => __( 'Jadwal Sholat', 'alkautsar' ),
-		'panel' => 'alkautsar_mosque',
-	) );
-
-	$wp_customize->add_setting( 'alkautsar_latitude', array(
-		'default'           => '-6.2088',
-		'sanitize_callback' => 'sanitize_text_field',
-		'transport'         => 'refresh',
-	) );
-	$wp_customize->add_control( 'alkautsar_latitude', array(
-		'label'       => __( 'Latitude (untuk perhitungan jadwal sholat)', 'alkautsar' ),
-		'section'     => 'alkautsar_prayer',
-		'type'        => 'text',
-		'description' => __( 'Cari koordinat masjid Anda di openstreetmap.org atau google maps.', 'alkautsar' ),
-	) );
-
-	$wp_customize->add_setting( 'alkautsar_longitude', array(
-		'default'           => '106.8456',
-		'sanitize_callback' => 'sanitize_text_field',
-		'transport'         => 'refresh',
-	) );
-	$wp_customize->add_control( 'alkautsar_longitude', array(
-		'label'   => __( 'Longitude (untuk perhitungan jadwal sholat)', 'alkautsar' ),
-		'section' => 'alkautsar_prayer',
-		'type'    => 'text',
-	) );
-
-	$wp_customize->add_setting( 'alkautsar_prayer_method', array(
-		'default'           => '20',
-		'sanitize_callback' => 'sanitize_text_field',
-		'transport'         => 'refresh',
-	) );
-	$wp_customize->add_control( 'alkautsar_prayer_method', array(
-		'label'   => __( 'Metode Perhitungan (Aladhan API)', 'alkautsar' ),
-		'section' => 'alkautsar_prayer',
-		'type'    => 'select',
-		'choices' => array(
-			'3'  => __( 'Muslim World League', 'alkautsar' ),
-			'2'  => __( 'ISNA', 'alkautsar' ),
-			'5'  => __( 'Egyptian Authority', 'alkautsar' ),
-			'4'  => __( 'Umm Al-Qura, Makkah', 'alkautsar' ),
-			'20' => __( 'Kemenag RI (Indonesia)', 'alkautsar' ),
-		),
-	) );
-
-	// ── Section: Info — tampilkan notice di Customizer ──
-	$wp_customize->add_section( 'alkautsar_info', array(
-		'title' => __( 'Info Pengaturan', 'alkautsar' ),
-		'panel' => 'alkautsar_mosque',
 	) );
 
 	$wp_customize->add_setting( 'alkautsar_info_notice', array(
@@ -85,18 +35,24 @@ function alkautsar_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'alkautsar_info_notice', array(
-		'label'       => __( 'Pengaturan Lainnya', 'alkautsar' ),
+		'label'       => __( 'Informasi', 'alkautsar' ),
 		'section'     => 'alkautsar_info',
 		'type'        => 'hidden',
-		'description' => __( '<strong>Pengaturan lain telah dipindah ke menu admin terpisah:</strong><br><br>• Profil & DKM — menu "Profil & DKM" di sidebar<br>• Donasi (Bank, QRIS, WhatsApp) — menu "Pengaturan Donasi"<br>• Kontak & Sosial Media — menu "Pengaturan Kontak"<br>• Keuangan Masjid — menu "Keuangan Masjid"<br>• Beranda (Hero) — menu "Beranda (Hero)"<br><br>Klik menu di sidebar untuk mengakses pengaturan tersebut.', 'alkautsar' ),
+		'description' => __( 'Semua pengaturan masjid sudah dipindah ke menu admin terpisah di sidebar. Klik menu berikut untuk mengedit:', 'alkautsar' )
+			. '<br><br>'
+			. '• <strong>Beranda (Hero)</strong> — ayat Arab, judul, subtitle<br>'
+			. '• <strong>Beranda (Tentang)</strong> — gambar masjid, judul section, paragraf, badge<br>'
+			. '• <strong>Beranda (Transparansi)</strong> — judul, paragraf, statistik<br>'
+			. '• <strong>Profil & DKM</strong> — sejarah, visi-misi<br>'
+			. '• <strong>Pengurus DKM</strong> — tambah/edit anggota DKM dengan foto<br>'
+			. '• <strong>Keuangan Masjid</strong> — total pemasukan/pengeluaran tahun ini<br>'
+			. '• <strong>Laporan Keuangan</strong> — tambah laporan per periode<br>'
+			. '• <strong>Pengaturan Donasi</strong> — bank, QRIS, WhatsApp<br>'
+			. '• <strong>Pengaturan Kontak</strong> — alamat, telepon, email, sosial media, koordinat peta, metode sholat<br>'
+			. '• <strong>Penerima Manfaat</strong> — data yatim, dhuafa, janda<br>'
+			. '• <strong>Kegiatan</strong> — agenda mendatang<br>'
+			. '• <strong>Program</strong> — program rutin masjid<br>'
+			. '• <strong>Panduan Visual</strong> — tutorial lengkap',
 	) );
 }
 add_action( 'customize_register', 'alkautsar_customize_register' );
-
-/**
- * Allow HTML in customizer description (for the info notice).
- */
-function alkautsar_customizer_html_description( $wp_customize ) {
-	// Description already supports HTML via wp_kses_post on output.
-}
-add_action( 'customize_controls_print_footer_scripts', 'alkautsar_customizer_html_description' );

@@ -14,48 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Register admin menu pages for settings.
+ *
+ * Urutan menu (logis — konten dulu, lalu pengaturan):
+ * 4-7  : Konten masjid (Beranda sections, Profil)
+ * 8-10 : Pengaturan (Donasi, Kontak, Keuangan)
  */
 function alkautsar_settings_admin_menu() {
-        add_menu_page(
-                __( 'Profil & DKM', 'alkautsar' ),
-                __( 'Profil & DKM', 'alkautsar' ),
-                'edit_posts',
-                'alkautsar-profile-settings',
-                'alkautsar_profile_settings_page',
-                'dashicons-building',
-                4
-        );
-
-        add_menu_page(
-                __( 'Keuangan Masjid', 'alkautsar' ),
-                __( 'Keuangan Masjid', 'alkautsar' ),
-                'edit_posts',
-                'alkautsar-finance-settings',
-                'alkautsar_finance_settings_page',
-                'dashicons-chart-bar',
-                5
-        );
-
-        add_menu_page(
-                __( 'Pengaturan Donasi', 'alkautsar' ),
-                __( 'Pengaturan Donasi', 'alkautsar' ),
-                'edit_posts',
-                'alkautsar-donation-settings',
-                'alkautsar_donation_settings_page',
-                'dashicons-money-alt',
-                6
-        );
-
-        add_menu_page(
-                __( 'Pengaturan Kontak', 'alkautsar' ),
-                __( 'Pengaturan Kontak', 'alkautsar' ),
-                'edit_posts',
-                'alkautsar-contact-settings',
-                'alkautsar_contact_settings_page',
-                'dashicons-phone',
-                7
-        );
-
+        // Beranda sections (group together).
         add_menu_page(
                 __( 'Beranda (Hero)', 'alkautsar' ),
                 __( 'Beranda (Hero)', 'alkautsar' ),
@@ -63,7 +28,7 @@ function alkautsar_settings_admin_menu() {
                 'alkautsar-hero-settings',
                 'alkautsar_hero_settings_page',
                 'dashicons-format-image',
-                8
+                4
         );
 
         add_menu_page(
@@ -73,7 +38,7 @@ function alkautsar_settings_admin_menu() {
                 'alkautsar-about-settings',
                 'alkautsar_about_settings_page',
                 'dashicons-info-outline',
-                9
+                5
         );
 
         add_menu_page(
@@ -83,6 +48,48 @@ function alkautsar_settings_admin_menu() {
                 'alkautsar-transparency-settings',
                 'alkautsar_transparency_settings_page',
                 'dashicons-visibility',
+                6
+        );
+
+        // Profil masjid.
+        add_menu_page(
+                __( 'Profil Masjid', 'alkautsar' ),
+                __( 'Profil Masjid', 'alkautsar' ),
+                'edit_posts',
+                'alkautsar-profile-settings',
+                'alkautsar_profile_settings_page',
+                'dashicons-building',
+                7
+        );
+
+        // Pengaturan operasional.
+        add_menu_page(
+                __( 'Pengaturan Donasi', 'alkautsar' ),
+                __( 'Pengaturan Donasi', 'alkautsar' ),
+                'edit_posts',
+                'alkautsar-donation-settings',
+                'alkautsar_donation_settings_page',
+                'dashicons-money-alt',
+                8
+        );
+
+        add_menu_page(
+                __( 'Pengaturan Kontak', 'alkautsar' ),
+                __( 'Pengaturan Kontak', 'alkautsar' ),
+                'edit_posts',
+                'alkautsar-contact-settings',
+                'alkautsar_contact_settings_page',
+                'dashicons-phone',
+                9
+        );
+
+        add_menu_page(
+                __( 'Keuangan Masjid', 'alkautsar' ),
+                __( 'Keuangan Masjid', 'alkautsar' ),
+                'edit_posts',
+                'alkautsar-finance-settings',
+                'alkautsar_finance_settings_page',
+                'dashicons-chart-bar',
                 10
         );
 }
@@ -150,11 +157,6 @@ function alkautsar_get_settings_fields() {
                         'alkautsar_profile_history' => 'wp_kses_post',
                         'alkautsar_vision'          => 'sanitize_textarea_field',
                         'alkautsar_mission'         => 'sanitize_textarea_field',
-                        'alkautsar_dkm_chairman'    => 'sanitize_text_field',
-                        'alkautsar_dkm_secretary'   => 'sanitize_text_field',
-                        'alkautsar_dkm_treasurer'   => 'sanitize_text_field',
-                        'alkautsar_dkm_imam'        => 'sanitize_text_field',
-                        'alkautsar_dkm_extra'       => 'wp_kses_post',
                 ),
                 'alkautsar-finance-settings' => array(
                         'alkautsar_finance_total_income'  => 'sanitize_text_field',
@@ -169,24 +171,25 @@ function alkautsar_get_settings_fields() {
                         'alkautsar_whatsapp'     => 'sanitize_text_field',
                 ),
                 'alkautsar-contact-settings' => array(
-                        'alkautsar_address'    => 'sanitize_textarea_field',
-                        'alkautsar_phone'      => 'sanitize_text_field',
-                        'alkautsar_email'      => 'sanitize_email',
-                        'alkautsar_instagram'  => 'esc_url_raw',
-                        'alkautsar_youtube'    => 'esc_url_raw',
-                        'alkautsar_facebook'   => 'esc_url_raw',
-                        'alkautsar_tiktok'     => 'esc_url_raw',
-                        'alkautsar_telegram'   => 'esc_url_raw',
-                        'alkautsar_map_lat'    => 'sanitize_text_field',
-                        'alkautsar_map_lng'    => 'sanitize_text_field',
+                        'alkautsar_address'       => 'sanitize_textarea_field',
+                        'alkautsar_phone'         => 'sanitize_text_field',
+                        'alkautsar_email'         => 'sanitize_email',
+                        'alkautsar_instagram'     => 'esc_url_raw',
+                        'alkautsar_youtube'       => 'esc_url_raw',
+                        'alkautsar_facebook'      => 'esc_url_raw',
+                        'alkautsar_tiktok'        => 'esc_url_raw',
+                        'alkautsar_telegram'      => 'esc_url_raw',
+                        'alkautsar_map_lat'       => 'sanitize_text_field',
+                        'alkautsar_map_lng'       => 'sanitize_text_field',
+                        'alkautsar_prayer_method' => 'sanitize_text_field',
                 ),
                 'alkautsar-hero-settings' => array(
                         'alkautsar_hero_arabic'   => 'sanitize_text_field',
                         'alkautsar_hero_title'    => 'sanitize_text_field',
                         'alkautsar_hero_subtitle' => 'sanitize_text_field',
-                        'alkautsar_hero_image'    => 'esc_url_raw',
                 ),
                 'alkautsar-about-settings' => array(
+                        'alkautsar_hero_image'           => 'esc_url_raw',
                         'alkautsar_about_eyebrow'      => 'sanitize_text_field',
                         'alkautsar_about_title'        => 'sanitize_text_field',
                         'alkautsar_about_lead'         => 'sanitize_textarea_field',
@@ -267,6 +270,39 @@ function alkautsar_textarea_field( $setting_id, $label, $rows = 4, $description 
         <?php
 }
 
+function alkautsar_select_field( $setting_id, $label, $options, $description = '' ) {
+        $value = get_theme_mod( $setting_id, '' );
+        ?>
+        <tr>
+                <th scope="row"><label for="<?php echo esc_attr( $setting_id ); ?>"><strong><?php echo esc_html( $label ); ?></strong></label></th>
+                <td>
+                        <select id="<?php echo esc_attr( $setting_id ); ?>" name="<?php echo esc_attr( $setting_id ); ?>" class="regular-text">
+                                <?php foreach ( $options as $val => $lbl ) : ?>
+                                        <option value="<?php echo esc_attr( $val ); ?>" <?php selected( $value, $val ); ?>><?php echo esc_html( $lbl ); ?></option>
+                                <?php endforeach; ?>
+                        </select>
+                        <?php if ( $description ) : ?>
+                                <p class="description"><?php echo esc_html( $description ); ?></p>
+                        <?php endif; ?>
+                </td>
+        </tr>
+        <?php
+}
+
+/**
+ * Get list of prayer calculation methods (Aladhan API).
+ */
+function alkautsar_prayer_methods() {
+        return array(
+                '20' => __( 'Kemenag RI (Indonesia) — Recommended', 'alkautsar' ),
+                '3'  => __( 'Muslim World League', 'alkautsar' ),
+                '2'  => __( 'ISNA (North America)', 'alkautsar' ),
+                '5'  => __( 'Egyptian General Authority', 'alkautsar' ),
+                '4'  => __( 'Umm Al-Qura, Makkah', 'alkautsar' ),
+                '1'  => __( 'University of Karachi', 'alkautsar' ),
+        );
+}
+
 function alkautsar_image_field( $setting_id, $label, $description = '' ) {
         $value = get_theme_mod( $setting_id, '' );
         ?>
@@ -304,21 +340,21 @@ function alkautsar_image_field( $setting_id, $label, $description = '' ) {
  * Page: Profil & DKM.
  */
 function alkautsar_profile_settings_page() {
-        alkautsar_settings_header( 'alkautsar-profile-settings', 'Profil & DKM Masjid', 'Atur sejarah masjid, visi-misi, dan data pengurus DKM. Perubahan otomatis tampil di halaman Profil website.' );
+        alkautsar_settings_header( 'alkautsar-profile-settings', 'Profil Masjid', 'Atur sejarah masjid, visi, dan misi. Untuk data pengurus DKM (dengan foto), gunakan menu "Pengurus DKM" di sidebar.' );
         ?>
         <table class="form-table" role="presentation">
                 <?php
                 alkautsar_textarea_field( 'alkautsar_profile_history', 'Sejarah Masjid', 5, 'Ceritakan sejarah singkat berdirinya masjid.' );
                 alkautsar_textarea_field( 'alkautsar_vision', 'Visi', 3, 'Visi masjid — satu kalimat.' );
                 alkautsar_textarea_field( 'alkautsar_mission', 'Misi (satu poin per baris)', 6, 'Tulis satu poin misi per baris. Contoh: "1. Menyelenggarakan ibadah dengan khusyuk."' );
-                echo '<tr><td colspan="2"><h3 class="alkautsar-section-title">Struktur Pengurus DKM</h3></td></tr>';
-                alkautsar_text_field( 'alkautsar_dkm_chairman', 'Ketua DKM' );
-                alkautsar_text_field( 'alkautsar_dkm_secretary', 'Sekretaris DKM' );
-                alkautsar_text_field( 'alkautsar_dkm_treasurer', 'Bendahara DKM' );
-                alkautsar_text_field( 'alkautsar_dkm_imam', 'Imam Masjid' );
-                alkautsar_textarea_field( 'alkautsar_dkm_extra', 'Pengurus Bidang Lain (opsional)', 4, 'Format bebas. Contoh: "Bidang Dakwah — Ust. X | Bidang Sosial — Bapak Y"' );
                 ?>
         </table>
+
+        <div class="alkautsar-tip-box">
+                <h4>Tambah Pengurus DKM</h4>
+                <p>Untuk menambah/edit anggota DKM (Ketua, Sekretaris, Bendahara, Imam, dll) lengkap dengan foto, gunakan menu <strong>"Pengurus DKM"</strong> di sidebar admin.</p>
+                <p><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=dkm_member' ) ); ?>" class="button button-secondary">Kelola Pengurus DKM &rarr;</a></p>
+        </div>
         <?php
         alkautsar_settings_footer();
 }
@@ -400,9 +436,11 @@ function alkautsar_contact_settings_page() {
                 alkautsar_text_field( 'alkautsar_facebook', 'Facebook URL', 'url' );
                 alkautsar_text_field( 'alkautsar_tiktok', 'TikTok URL', 'url' );
                 alkautsar_text_field( 'alkautsar_telegram', 'Telegram URL', 'url' );
-                echo '<tr><td colspan="2"><h3 class="alkautsar-section-title">Koordinat Lokasi (untuk Peta)</h3></td></tr>';
+                echo '<tr><td colspan="2"><h3 class="alkautsar-section-title">Koordinat Lokasi (untuk Peta & Jadwal Sholat)</h3></td></tr>';
                 alkautsar_text_field( 'alkautsar_map_lat', 'Latitude', 'text', 'Contoh: -6.2088 (Jakarta). Cari koordinat masjid Anda di openstreetmap.org.', '-6.2088' );
                 alkautsar_text_field( 'alkautsar_map_lng', 'Longitude', 'text', 'Contoh: 106.8456 (Jakarta).', '106.8456' );
+                echo '<tr><td colspan="2"><h3 class="alkautsar-section-title">Jadwal Sholat</h3></td></tr>';
+                alkautsar_select_field( 'alkautsar_prayer_method', 'Metode Perhitungan Jadwal Sholat', alkautsar_prayer_methods(), 'Metode yang dipakai API Aladhan untuk menghitung jadwal sholat. Default: Kemenag RI.' );
                 ?>
         </table>
         <?php
@@ -413,14 +451,13 @@ function alkautsar_contact_settings_page() {
  * Page: Hero Settings.
  */
 function alkautsar_hero_settings_page() {
-        alkautsar_settings_header( 'alkautsar-hero-settings', 'Beranda (Hero Section)', 'Atur tampilan bagian atas (hero) halaman beranda — ayat Arab, judul, subtitle, dan gambar masjid.' );
+        alkautsar_settings_header( 'alkautsar-hero-settings', 'Beranda (Hero Section)', 'Atur tampilan bagian atas (hero) halaman beranda — ayat Arab, judul, dan subtitle.' );
         ?>
         <table class="form-table" role="presentation">
                 <?php
                 alkautsar_text_field( 'alkautsar_hero_arabic', 'Ayat Arab (di atas judul)', 'text', 'Contoh: Bismillahirrahmanirrahim' );
                 alkautsar_text_field( 'alkautsar_hero_title', 'Judul Utama', 'text', '', 'Selamat Datang di Masjid Al-Kautsar' );
                 alkautsar_textarea_field( 'alkautsar_hero_subtitle', 'Subtitle', 2, 'Kalimat singkat di bawah judul.' );
-                alkautsar_image_field( 'alkautsar_hero_image', 'Gambar Masjid', 'Upload foto masjid. Akan tampil di section "Tentang Kami" beranda dan halaman Profil.' );
                 ?>
         </table>
         <?php
@@ -431,10 +468,12 @@ function alkautsar_hero_settings_page() {
  * Page: About Section Settings (Beranda - Tentang Kami).
  */
 function alkautsar_about_settings_page() {
-        alkautsar_settings_header( 'alkautsar-about-settings', 'Beranda (Tentang Kami)', 'Atur tampilan section "Tentang Kami" di beranda — judul, paragraf, daftar keunggulan, dan badge.' );
+        alkautsar_settings_header( 'alkautsar-about-settings', 'Beranda (Tentang Kami)', 'Atur tampilan section "Tentang Kami" di beranda — gambar masjid, judul, paragraf, daftar keunggulan, dan badge.' );
         ?>
         <table class="form-table" role="presentation">
                 <?php
+                alkautsar_image_field( 'alkautsar_hero_image', 'Gambar Masjid', 'Upload foto masjid. Tampil di section "Tentang Kami" beranda dan halaman Profil.' );
+                echo '<tr><td colspan="2"><h3 class="alkautsar-section-title">Konten Section</h3></td></tr>';
                 alkautsar_text_field( 'alkautsar_about_eyebrow', 'Label Section', 'text', 'Teks kecil di atas judul. Contoh: "Tentang Kami"', 'Tentang Kami' );
                 alkautsar_text_field( 'alkautsar_about_title', 'Judul Section', 'text', '', 'Masjid Al-Kautsar — Baitullah yang Memuliakan Umat' );
                 alkautsar_textarea_field( 'alkautsar_about_lead', 'Paragraf Utama (Lead)', 3, 'Paragraf pembuka yang menjelaskan masjid secara umum.' );
@@ -481,13 +520,13 @@ function alkautsar_transparency_settings_page() {
 function alkautsar_settings_admin_scripts( $hook ) {
         // Only on our settings pages.
         $our_pages = array(
-                'toplevel_page_alkautsar-profile-settings',
-                'toplevel_page_alkautsar-finance-settings',
-                'toplevel_page_alkautsar-donation-settings',
-                'toplevel_page_alkautsar-contact-settings',
                 'toplevel_page_alkautsar-hero-settings',
                 'toplevel_page_alkautsar-about-settings',
                 'toplevel_page_alkautsar-transparency-settings',
+                'toplevel_page_alkautsar-profile-settings',
+                'toplevel_page_alkautsar-donation-settings',
+                'toplevel_page_alkautsar-contact-settings',
+                'toplevel_page_alkautsar-finance-settings',
         );
         if ( ! in_array( $hook, $our_pages, true ) ) {
                 return;
