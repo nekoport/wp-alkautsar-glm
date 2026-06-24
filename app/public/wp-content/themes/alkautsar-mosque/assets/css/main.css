@@ -2189,11 +2189,8 @@ strong, b { font-weight: 600; color: var(--secondary); }
                 z-index: 998;
         }
 
-        /* Header layout */
-        .header-topbar__contact { display: none; }
+        /* Header layout — topbar hidden in mobile (handled in Section 24) */
         .header-topbar__cta { width: 100%; text-align: right; }
-
-        /* Hide the global donation topbar button on very small screens */
         .topbar-donate { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
 
         /* Hero */
@@ -4509,10 +4506,16 @@ strong, b { font-weight: 600; color: var(--secondary); }
         .footer-brand__logo img,
         .footer-brand__logo .custom-logo { max-height: 48px; }
 
-        /* Header */
-        .header-topbar__contact { display: none; }
-        .header-topbar__cta { width: 100%; text-align: right; }
-        .topbar-donate { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
+        /* Header — sticky & compact di mobile */
+        .site-header {
+                position: sticky !important;
+                position: -webkit-sticky !important;
+                top: 0 !important;
+                z-index: 9999 !important;
+        }
+        .header-topbar { display: none; }
+        .header-main { padding: 0.625rem 0; }
+        .header-main__inner { gap: 1rem; }
         .site-branding { gap: 0.625rem; }
         .custom-logo-link img,
         .custom-logo { max-height: 44px; }

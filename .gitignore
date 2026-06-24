@@ -9,6 +9,9 @@ app/public/wp-content/uploads/
 app/public/wp-content/upgrade/
 app/public/wp-content/cache/
 
+# WordPress language files (runtime-generated)
+app/public/wp-content/languages/
+
 # WordPress config (may contain secrets)
 app/public/wp-config.php
 
