@@ -127,7 +127,6 @@ get_header();
 		wp_reset_postdata();
 		?>
 
-		<!-- Hubungkan ke Kegiatan Mendatang -->
 		<div style="text-align:center; margin-top:4rem; padding:2rem; background: var(--base-alt); border-radius: var(--radius-lg);">
 			<h3 style="margin-bottom:1rem; font-size:1.5rem;"><?php esc_html_e( 'Ingin lihat agenda kegiatan terdekat?', 'alkautsar' ); ?></h3>
 			<p style="margin-bottom:1.5rem; color: var(--ink-soft);"><?php esc_html_e( 'Lihat jadwal lengkap kajian, pengajian, dan acara khusus di halaman Kegiatan.', 'alkautsar' ); ?></p>

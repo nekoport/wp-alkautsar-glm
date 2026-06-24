@@ -47,7 +47,6 @@ $reports = alkautsar_get_financial_reports( 12 );
 <main id="primary" class="site-main">
         <div class="container page-content">
 
-                <!-- Summary -->
                 <section style="text-align:center; max-width:760px; margin:0 auto 3rem;">
                         <p class="section-eyebrow" style="padding-left:0; padding-bottom:1.5rem;"><?php echo esc_html( sprintf( __( 'Laporan Tahun %s', 'alkautsar' ), $finance_year ) ); ?></p>
                         <h2 style="font-size: var(--fs-h2); margin-bottom:1rem;"><?php esc_html_e( 'Ringkasan Keuangan Tahun Ini', 'alkautsar' ); ?></h2>
@@ -72,7 +71,6 @@ $reports = alkautsar_get_financial_reports( 12 );
                         </div>
                 </div>
 
-                <!-- Beneficiary Summary -->
                 <?php if ( ! empty( $beneficiaries ) ) : ?>
                         <section style="margin-top:4rem;">
                                 <div class="section-head section-head--center">
@@ -96,7 +94,6 @@ $reports = alkautsar_get_financial_reports( 12 );
                         </section>
                 <?php endif; ?>
 
-                <!-- Financial Reports -->
                 <section style="margin-top:4rem;">
                         <div class="section-head section-head--center">
                                 <p class="section-eyebrow"><?php esc_html_e( 'Laporan Keuangan', 'alkautsar' ); ?></p>
@@ -161,7 +158,6 @@ $reports = alkautsar_get_financial_reports( 12 );
                         <?php endif; ?>
                 </section>
 
-                <!-- CTA Donation -->
                 <div style="text-align:center; margin-top:4rem; padding:2rem; background:linear-gradient(135deg, #2A140A 0%, #3B1E12 100%); color:white; border-radius: var(--radius-lg);">
                         <h3 style="color:white; margin-bottom:1rem; font-size:1.5rem;"><?php esc_html_e( 'Yakin dengan Amanah Kami?', 'alkautsar' ); ?></h3>
                         <p style="color: rgba(255,255,255,0.8); margin-bottom:1.5rem;"><?php esc_html_e( 'Salurkan donasi terbaik Anda untuk kemakmuran masjid.', 'alkautsar' ); ?></p>

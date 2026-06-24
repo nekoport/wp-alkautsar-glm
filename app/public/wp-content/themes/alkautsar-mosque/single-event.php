@@ -47,7 +47,6 @@ get_header();
 					</figure>
 				<?php endif; ?>
 
-				<!-- Event detail card -->
 				<aside class="event-detail-card" style="max-width:760px; margin: 0 auto 2rem; background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
 					<h2 style="margin-top:0; font-size:1.125rem; color: var(--secondary);"><?php esc_html_e( 'Detail Kegiatan', 'alkautsar' ); ?></h2>
 					<ul style="list-style:none; padding:0; margin:0; display:grid; gap:0.875rem;">

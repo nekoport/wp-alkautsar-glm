@@ -9,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit;
 }
 ?>
-</div><!-- #content -->
 
 <footer id="colophon" class="site-footer" role="contentinfo">
         <div class="footer-pattern" aria-hidden="true"></div>

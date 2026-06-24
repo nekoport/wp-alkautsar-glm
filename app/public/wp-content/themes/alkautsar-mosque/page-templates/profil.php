@@ -25,7 +25,6 @@ $hero_img  = get_theme_mod( 'alkautsar_hero_image' );
 <main id="primary" class="site-main">
         <div class="container page-content">
 
-                <!-- Sejarah -->
                 <section class="profile-section">
                         <div class="profile-section__inner">
                                 <div class="profile-section__media">
@@ -43,7 +42,6 @@ $hero_img  = get_theme_mod( 'alkautsar_hero_image' );
                         </div>
                 </section>
 
-                <!-- Visi & Misi -->
                 <section class="profile-section profile-section--alt">
                         <div class="container">
                                 <div class="section-head section-head--center">
@@ -76,7 +74,6 @@ $hero_img  = get_theme_mod( 'alkautsar_hero_image' );
                         </div>
                 </section>
 
-                <!-- DKM -->
                 <section class="profile-section">
                         <div class="container">
                                 <div class="section-head section-head--center">

@@ -26,7 +26,6 @@ $whatsapp     = get_theme_mod( 'alkautsar_whatsapp', '6281234567890' );
 <main id="primary" class="site-main">
 	<div class="container page-content">
 
-		<!-- Intro -->
 		<section style="text-align:center; max-width:760px; margin: 0 auto 3rem;">
 			<p class="section-eyebrow" style="padding-left:0; padding-bottom:1.5rem;"><?php esc_html_e( 'Tasharruf & Wakaf', 'alkautsar' ); ?></p>
 			<p class="section-eyebrow::after" style="display:none;"></p>
@@ -36,7 +35,6 @@ $whatsapp     = get_theme_mod( 'alkautsar_whatsapp', '6281234567890' );
 			</p>
 		</section>
 
-		<!-- Donation methods -->
 		<div class="donation-methods-page">
 			<div class="donation-method-page donation-method-page--bank">
 				<div class="donation-method-page__head">
@@ -69,7 +67,6 @@ $whatsapp     = get_theme_mod( 'alkautsar_whatsapp', '6281234567890' );
 			</div>
 		</div>
 
-		<!-- Konfirmasi -->
 		<section class="donation-confirm-page">
 			<h3><?php esc_html_e( 'Konfirmasi Donasi', 'alkautsar' ); ?></h3>
 			<p><?php esc_html_e( 'Setelah transfer atau scan QRIS, mohon konfirmasi via WhatsApp agar donasi dapat kami catat dan akui dengan baik. Setiap donasi yang masuk akan dilaporkan secara transparan di halaman Transparansi.', 'alkautsar' ); ?></p>
@@ -79,7 +76,6 @@ $whatsapp     = get_theme_mod( 'alkautsar_whatsapp', '6281234567890' );
 			</a>
 		</section>
 
-		<!-- Penyaluran -->
 		<section style="margin-top:4rem;">
 			<div class="section-head section-head--center">
 				<p class="section-eyebrow"><?php esc_html_e( 'Penyaluran Donasi', 'alkautsar' ); ?></p>
@@ -109,7 +105,6 @@ $whatsapp     = get_theme_mod( 'alkautsar_whatsapp', '6281234567890' );
 			</div>
 		</section>
 
-		<!-- CTA Transparency -->
 		<div style="text-align:center; margin-top:4rem; padding:2rem; background: var(--base-alt); border-radius: var(--radius-lg);">
 			<h3 style="margin-bottom:1rem; font-size:1.5rem;"><?php esc_html_e( 'Mau lihat laporan penyaluran donasi?', 'alkautsar' ); ?></h3>
 			<a href="<?php echo esc_url( home_url( '/transparansi' ) ); ?>" class="btn btn--primary"><?php esc_html_e( 'Lihat Halaman Transparansi', 'alkautsar' ); ?></a>

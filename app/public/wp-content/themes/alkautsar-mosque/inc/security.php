@@ -38,15 +38,21 @@ function alkautsar_security_headers() {
                 header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
         }
         // Content-Security-Policy — restrict external resources.
+        // 'unsafe-eval' dihapus (tidak dibutuhkan WordPress core).
+        // 'unsafe-inline' dipertahankan karena WordPress core masih menggunakan
+        // inline scripts secara ekstensif (admin bar, wp_localize_script, dll).
+        // Migrasi ke nonce-based CSP memerlukan hook ke wp_head/wp_footer yang
+        // kompleks dan berisiko break plugin pihak ketiga.
         header( "Content-Security-Policy: default-src 'self'; " .
-                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.aladhan.com https://fonts.googleapis.com; " .
+                "script-src 'self' 'unsafe-inline' https://api.aladhan.com; " .
                 "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " .
                 "font-src 'self' https://fonts.gstatic.com data:; " .
                 "img-src 'self' data: https: blob:; " .
                 "connect-src 'self' https://api.aladhan.com; " .
                 "frame-src 'self' https://www.openstreetmap.org; " .
                 "object-src 'none'; " .
-                "base-uri 'self'"
+                "base-uri 'self'; " .
+                "upgrade-insecure-requests"
         );
 }
 add_action( 'send_headers', 'alkautsar_security_headers' );

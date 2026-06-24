@@ -14,7 +14,6 @@ get_header();
 
 <main id="primary" class="site-main">
 
-        <!-- ═══════════════ HERO ═══════════════ -->
         <section class="hero" id="home">
                 <div class="hero__overlay"></div>
                 <div class="hero__pattern" aria-hidden="true"></div>
@@ -35,7 +34,6 @@ get_header();
                 </div>
         </section>
 
-        <!-- ═══════════════ PRAYER SCHEDULE STRIP ═══════════════ -->
         <section class="prayer-strip" aria-label="<?php esc_attr_e( 'Jadwal Sholat Hari Ini', 'alkautsar' ); ?>">
                 <div class="container">
                         <div class="prayer-strip__head">
@@ -46,7 +44,6 @@ get_header();
                                 <p class="prayer-strip__date" id="prayer-date"><?php echo esc_html( wp_date( 'l, j F Y' ) ); ?></p>
                         </div>
                         <div class="prayer-strip__grid" id="prayer-grid" role="list">
-                                <!-- Filled by prayer-times.js -->
                                 <div class="prayer-cell prayer-cell--loading" role="listitem">
                                         <span class="prayer-cell__name"><?php esc_html_e( 'Memuat jadwal…', 'alkautsar' ); ?></span>
                                 </div>
@@ -58,7 +55,6 @@ get_header();
                 </div>
         </section>
 
-        <!-- ═══════════════ ABOUT / PROFILE ═══════════════ -->
         <section class="about" id="about">
                 <div class="container about__inner">
                         <div class="about__media">
@@ -103,7 +99,6 @@ Pelaporan keuangan transparan" );
                 </div>
         </section>
 
-        <!-- ═══════════════ PROGRAMS ═══════════════ -->
 	<section class="programs" id="program">
 		<div class="container">
 			<div class="section-head section-head--center">
@@ -166,7 +161,6 @@ Pelaporan keuangan transparan" );
 		</div>
 	</section>
 
-        <!-- ═══════════════ UPCOMING EVENTS / KEGIATAN MENDATANG ═══════════════ -->
         <section class="events" id="kegiatan-mendatang">
                 <div class="container">
                         <div class="section-head section-head--row">
@@ -338,7 +332,6 @@ Pelaporan keuangan transparan" );
                 </div>
         </section>
 
-        <!-- ═══════════════ DONATION CTA ═══════════════ -->
         <section class="donation-cta" id="donation">
                 <div class="container">
                         <div class="donation-card">
@@ -393,7 +386,6 @@ Pelaporan keuangan transparan" );
                 </div>
         </section>
 
-        <!-- ═══════════════ NEWS ═══════════════ -->
         <section class="news" id="news">
                 <div class="container">
                         <div class="section-head section-head--row">
@@ -465,7 +457,6 @@ Pelaporan keuangan transparan" );
                 </div>
         </section>
 
-        <!-- ═══════════════ TRANSPARENCY ═══════════════ -->
         <section class="transparency" id="transparency">
                 <div class="container">
                         <div class="transparency__inner">
@@ -536,7 +527,6 @@ Pelaporan keuangan transparan" );
                 </div>
         </section>
 
-        <!-- ═══════════════ CONTACT ═══════════════ -->
         <section class="contact" id="contact">
                 <div class="container">
                         <div class="section-head section-head--center">

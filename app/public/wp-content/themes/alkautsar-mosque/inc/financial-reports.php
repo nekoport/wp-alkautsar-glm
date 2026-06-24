@@ -145,13 +145,11 @@ function alkautsar_financial_report_meta_box_html( $post ) {
                 </select>
         </p>
 
-        <!-- Field: Tanggal Harian -->
         <p class="alkautsar-finance-field" data-period="daily">
                 <label for="alkautsar_report_date"><strong><?php esc_html_e( 'Tanggal Laporan', 'alkautsar' ); ?></strong></label><br>
                 <input type="date" id="alkautsar_report_date" name="alkautsar_report_date" value="<?php echo esc_attr( $date ); ?>" style="width:100%;">
         </p>
 
-        <!-- Field: Bulanan / Quarterly / Ramadhan / Qurban -->
         <p class="alkautsar-finance-field" data-period="monthly quarterly ramadhan qurban event">
                 <label for="alkautsar_report_month"><strong><?php esc_html_e( 'Bulan', 'alkautsar' ); ?></strong></label><br>
                 <select id="alkautsar_report_month" name="alkautsar_report_month" style="width:100%;">
@@ -169,7 +167,6 @@ function alkautsar_financial_report_meta_box_html( $post ) {
                 </select>
         </p>
 
-        <!-- Field: Tahun (selalu tampil) -->
         <p>
                 <label for="alkautsar_report_year"><strong><?php esc_html_e( 'Tahun', 'alkautsar' ); ?></strong></label><br>
                 <input type="number" min="2000" max="2100" id="alkautsar_report_year" name="alkautsar_report_year" value="<?php echo esc_attr( $year ); ?>" style="width:100%;">
@@ -177,7 +174,6 @@ function alkautsar_financial_report_meta_box_html( $post ) {
 
         <hr style="border:0; border-top:1px solid #eee; margin:1.5rem 0;">
 
-        <!-- Pemasukan -->
         <p>
                 <label for="alkautsar_report_income"><strong><?php esc_html_e( 'Total Pemasukan (Rp)', 'alkautsar' ); ?></strong></label><br>
                 <input type="text" id="alkautsar_report_income_raw" name="alkautsar_report_income" value="<?php echo esc_attr( $income ); ?>" placeholder="500000" style="width:100%;" inputmode="numeric">
@@ -186,7 +182,6 @@ function alkautsar_financial_report_meta_box_html( $post ) {
                 </span>
         </p>
 
-        <!-- Pengeluaran -->
         <p>
                 <label for="alkautsar_report_expense"><strong><?php esc_html_e( 'Total Pengeluaran (Rp)', 'alkautsar' ); ?></strong></label><br>
                 <input type="text" id="alkautsar_report_expense_raw" name="alkautsar_report_expense" value="<?php echo esc_attr( $expense ); ?>" placeholder="450000" style="width:100%;" inputmode="numeric">
@@ -195,7 +190,6 @@ function alkautsar_financial_report_meta_box_html( $post ) {
                 </span>
         </p>
 
-        <!-- Saldo otomatis -->
         <p style="background:#F8F1E4; padding:12px 16px; border-radius:6px;">
                 <strong style="color:#3B1E12; font-size:14px;"><?php esc_html_e( 'Saldo (Pemasukan - Pengeluaran):', 'alkautsar' ); ?></strong><br>
                 <span id="alkautsar_report_balance" style="font-size:20px; font-weight:700; color:#D4AF37; font-family:'Cormorant Garamond', serif;">
@@ -206,19 +200,16 @@ function alkautsar_financial_report_meta_box_html( $post ) {
                 </span>
         </p>
 
-        <!-- Detail item (opsional) -->
         <p>
                 <label for="alkautsar_report_items"><strong><?php esc_html_e( 'Rincian Item (opsional, satu per baris)', 'alkautsar' ); ?></strong></label><br>
                 <textarea id="alkautsar_report_items" name="alkautsar_report_items" rows="4" style="width:100%;" placeholder="<?php esc_attr_e( "Contoh:\n- Infak jamaah Jumat: Rp 2.500.000\n- Listrik & air: Rp 800.000\n- Santunan dhuafa: Rp 1.500.000", 'alkautsar' ); ?>"><?php echo esc_textarea( $items ); ?></textarea>
         </p>
 
-        <!-- Ringkasan -->
         <p>
                 <label for="alkautsar_report_summary"><strong><?php esc_html_e( 'Ringkasan / Catatan (opsional)', 'alkautsar' ); ?></strong></label><br>
                 <textarea id="alkautsar_report_summary" name="alkautsar_report_summary" rows="3" style="width:100%;" placeholder="<?php esc_attr_e( 'Tuliskan catatan singkat tentang laporan ini.', 'alkautsar' ); ?>"><?php echo esc_textarea( $summary ); ?></textarea>
         </p>
 
-        <!-- PDF Upload -->
         <p>
                 <label for="alkautsar_report_pdf"><strong><?php esc_html_e( 'File PDF Laporan (opsional)', 'alkautsar' ); ?></strong></label><br>
                 <input type="text" id="alkautsar_report_pdf" name="alkautsar_report_pdf" value="<?php echo esc_attr( $pdf ); ?>" placeholder="<?php esc_attr_e( 'URL file PDF (klik tombol di bawah)', 'alkautsar' ); ?>" style="width:100%;">

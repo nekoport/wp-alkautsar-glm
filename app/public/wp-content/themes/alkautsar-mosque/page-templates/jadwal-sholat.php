@@ -20,7 +20,6 @@ get_header();
 <main id="primary" class="site-main">
 	<div class="container page-content">
 
-		<!-- Today's prayer times -->
 		<section class="prayer-today-section">
 			<div class="prayer-strip__head">
 				<h2 class="prayer-strip__title" style="color:var(--secondary);">
@@ -40,7 +39,6 @@ get_header();
 			</div>
 		</section>
 
-		<!-- Monthly calendar -->
 		<section style="margin-top:4rem;">
 			<div class="section-head section-head--center">
 				<p class="section-eyebrow"><?php esc_html_e( 'Kalender Bulanan', 'alkautsar' ); ?></p>
@@ -59,14 +57,12 @@ get_header();
 				<div class="prayer-calendar__loading"><?php esc_html_e( 'Memuat kalender sholat…', 'alkautsar' ); ?></div>
 			</div>
 
-			<!-- Selected day detail -->
 			<div id="prayer-day-detail" class="prayer-day-detail" hidden>
 				<h3 id="prayer-day-detail-title"></h3>
 				<div id="prayer-day-detail-grid" class="prayer-day-detail__grid"></div>
 			</div>
 		</section>
 
-		<!-- Info koordinat -->
 		<section style="margin-top:4rem; padding:1.5rem 2rem; background: var(--base-alt); border-left: 4px solid var(--accent); border-radius: var(--radius-md); max-width:760px; margin-left:auto; margin-right:auto;">
 			<h3 style="margin-top:0; font-size:1.125rem; color: var(--secondary);">
 				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:0.5rem; color:var(--accent-deep);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>

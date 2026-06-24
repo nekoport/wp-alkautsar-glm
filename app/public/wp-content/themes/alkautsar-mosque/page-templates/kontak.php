@@ -46,7 +46,6 @@ $map_link = sprintf( 'https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=17/%s/%
 	<div class="container page-content">
 
 		<div class="contact-page__grid">
-			<!-- Contact info -->
 			<div class="contact-page__info">
 				<h2 class="section-title" style="margin-bottom:1.5rem; font-size:1.75rem;"><?php esc_html_e( 'Informasi Kontak', 'alkautsar' ); ?></h2>
 				<ul class="contact__list">
@@ -93,7 +92,6 @@ $map_link = sprintf( 'https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=17/%s/%
 					</li>
 				</ul>
 
-				<!-- Social Media -->
 				<h2 class="section-title" style="margin:2.5rem 0 1.25rem; font-size:1.75rem;"><?php esc_html_e( 'Media Sosial', 'alkautsar' ); ?></h2>
 				<div class="contact-social">
 					<?php if ( $ig ) : ?>
@@ -129,7 +127,6 @@ $map_link = sprintf( 'https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=17/%s/%
 				</div>
 			</div>
 
-			<!-- Map -->
 			<div class="contact-page__map">
 				<h2 class="section-title" style="margin-bottom:1.5rem; font-size:1.75rem;"><?php esc_html_e( 'Lokasi Masjid', 'alkautsar' ); ?></h2>
 				<div class="contact-map__embed">
