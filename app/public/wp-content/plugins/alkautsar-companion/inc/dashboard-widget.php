@@ -16,28 +16,12 @@ function alkautsar_companion_dashboard_widget() {
 }
 add_action( 'wp_dashboard_setup', 'alkautsar_companion_dashboard_widget' );
 
-/**
- * Helper: safely get post count (return 0 if CPT doesn't exist).
- */
-function alkautsar_companion_safe_count( $post_type ) {
-	$post_type_obj = get_post_type_object( $post_type );
-	if ( ! $post_type_obj ) {
-		return 0;
-	}
-	$counts = wp_count_posts( $post_type );
-	if ( ! $counts || ! isset( $counts->publish ) ) {
-		return 0;
-	}
-	return (int) $counts->publish;
-}
-
 function alkautsar_companion_dashboard_render() {
-	$posts_count    = alkautsar_companion_safe_count( 'post' );
-	$events_count   = alkautsar_companion_safe_count( 'event' );
-	$programs_count = alkautsar_companion_safe_count( 'program' );
-	$galeri_count   = alkautsar_companion_safe_count( 'galeri' );
-	$reports_count  = alkautsar_companion_safe_count( 'financial_report' );
-	$dkm_count      = alkautsar_companion_safe_count( 'dkm_member' );
+	$posts_count    = wp_count_posts( 'post' )->publish;
+	$events_count   = wp_count_posts( 'event' )->publish;
+	$programs_count = wp_count_posts( 'program' )->publish;
+	$benef_count    = wp_count_posts( 'beneficiary' )->publish;
+	$reports_count  = wp_count_posts( 'financial_report' )->publish;
 
 	?>
 	<style>
@@ -63,16 +47,16 @@ function alkautsar_companion_dashboard_render() {
 			<span>Program</span>
 		</div>
 		<div class="alkautsar-stat">
-			<strong><?php echo esc_html( $galeri_count ); ?></strong>
-			<span>Album Galeri</span>
-		</div>
-		<div class="alkautsar-stat">
-			<strong><?php echo esc_html( $dkm_count ); ?></strong>
-			<span>Pengurus DKM</span>
+			<strong><?php echo esc_html( $benef_count ); ?></strong>
+			<span>Penerima Manfaat</span>
 		</div>
 		<div class="alkautsar-stat">
 			<strong><?php echo esc_html( $reports_count ); ?></strong>
 			<span>Laporan Keuangan</span>
+		</div>
+		<div class="alkautsar-stat">
+			<strong><?php echo esc_html( wp_count_posts( 'page' )->publish ); ?></strong>
+			<span>Halaman</span>
 		</div>
 	</div>
 

@@ -4176,6 +4176,418 @@ strong, b { font-weight: 600; color: var(--secondary); }
         .galeri-item { aspect-ratio: 16 / 10; }
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   24. COMPREHENSIVE MOBILE RESPONSIVE OVERHAUL
+   Covers ALL pages: berita, program, donasi, jadwal-sholat, galeri,
+   transparansi, kontak, profil, single post, etc.
+══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+        /* ═══ Container & base typography ═══ */
+        .container { padding: 0 1rem; }
+        body { font-size: 1rem; }
+
+        /* ═══ Page headers ═══ */
+        .page-header { padding: 3rem 0; }
+        .page-header h1 { font-size: 1.875rem; }
+        .page-header .breadcrumb { font-size: 0.8125rem; }
+
+        /* ═══ Section heads ═══ */
+        .section-head { margin-bottom: 2rem; }
+        .section-head--center { max-width: 100%; }
+        .section-head--row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+        }
+        .section-head--row .btn { width: 100%; }
+        .section-title { font-size: 1.625rem !important; }
+        .section-desc { font-size: 0.9375rem; }
+
+        /* ═══ Buttons ═══ */
+        .btn {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
+                width: 100%;
+                justify-content: center;
+        }
+        .btn--lg { padding: 0.875rem 1.5rem; font-size: 0.9375rem; }
+        .btn--sm { width: auto; padding: 0.5rem 1rem; }
+        .hero__actions { flex-direction: column; width: 100%; }
+        .hero__actions .btn { width: 100%; }
+
+        /* ═══ /berita — News grid ═══ */
+        .news__grid,
+        .news-filters + .news__grid,
+        .news__grid[style*="repeat(3"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem;
+        }
+        .news-card__media { aspect-ratio: 16 / 10; }
+        .news-card__body { padding: 1.25rem; }
+        .news-card__title { font-size: 1.125rem; }
+        .news-filters__form { flex-direction: column; }
+        .news-filters__search { width: 100%; }
+
+        /* ═══ /program — Programs grid ═══ */
+        .programs__grid,
+        .programs__grid[style*="repeat(3"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem;
+        }
+        .program-card { padding: 1.5rem; }
+        .program-card__title { font-size: 1.125rem; }
+        .program-card__icon { width: 56px; height: 56px; }
+        .program-card__icon svg { width: 28px; height: 28px; }
+
+        /* ═══ /donasi — Donation methods ═══ */
+        .donation-methods-page {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem;
+        }
+        .donation-method-page { padding: 1.5rem; }
+        .donation-method__number { font-size: 1.5rem; word-break: break-all; }
+        .donation-confirm-page { padding: 1.75rem 1.25rem; }
+        .donation-confirm-page h3 { font-size: 1.25rem; }
+        .donation-confirm-page p { font-size: 0.9375rem; }
+
+        /* ═══ /jadwal-sholat — Prayer schedule ═══ */
+        .prayer-today-section { padding: 1.25rem; }
+        .prayer-strip__grid--page,
+        .prayer-strip__grid[style*="repeat(6"] {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 0.5rem;
+        }
+        .prayer-cell { padding: 0.875rem 0.375rem; }
+        .prayer-cell__time { font-size: 1.125rem; }
+        .prayer-cell__name { font-size: 0.6875rem; }
+
+        /* Prayer calendar — make scrollable on mobile */
+        .prayer-calendar {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding: 1rem;
+        }
+        .prayer-calendar__header,
+        .prayer-calendar__body {
+                min-width: 480px;
+        }
+        .prayer-calendar__cell {
+                min-height: 70px;
+                padding: 0.375rem 0.25rem;
+        }
+        .prayer-calendar__cell-day { font-size: 0.9375rem; }
+        .prayer-calendar__cell-times { font-size: 0.625rem; }
+        .prayer-calendar__cell-hijri { font-size: 0.5625rem; }
+        .prayer-calendar__day-name { font-size: 0.6875rem; padding: 0.375rem 0; }
+        .prayer-calendar-label { font-size: 1.25rem; min-width: 0; }
+        .prayer-calendar-controls { gap: 0.5rem; flex-wrap: wrap; }
+        .prayer-calendar-controls .btn { width: auto; padding: 0.5rem 0.875rem; }
+
+        /* Prayer day detail grid */
+        .prayer-day-detail__grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem;
+        }
+        .prayer-day-detail__item { padding: 0.75rem 0.375rem; }
+        .prayer-day-detail__item strong { font-size: 1rem; }
+        .prayer-day-detail__item span { font-size: 0.6875rem; }
+
+        /* ═══ /galeri — Galeri archive + single ═══ */
+        .galeri-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.875rem;
+        }
+        .galeri-album__body { padding: 0.875rem; }
+        .galeri-album__title { font-size: 1rem; }
+        .galeri-album__desc { font-size: 0.8125rem; }
+        .galeri-album__count { font-size: 0.6875rem; padding: 0.25rem 0.5rem; }
+
+        .galeri-photos-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.625rem;
+        }
+        .galeri-photo__zoom { width: 36px; height: 36px; }
+        .galeri-photo__zoom svg { width: 16px; height: 16px; }
+
+        /* Galeri filters */
+        .galeri-filters { gap: 0.375rem; }
+        .galeri-filter { padding: 0.375rem 0.75rem; font-size: 0.8125rem; }
+
+        /* Lightbox mobile */
+        .galeri-lightbox { padding: 1rem; }
+        .galeri-lightbox__close { top: 0.75rem; right: 0.75rem; width: 40px; height: 40px; }
+        .galeri-lightbox__nav { width: 40px; height: 40px; }
+        .galeri-lightbox__nav--prev { left: 0.5rem; }
+        .galeri-lightbox__nav--next { right: 0.5rem; }
+        .galeri-lightbox__caption { font-size: 1rem; }
+        .galeri-lightbox__counter { font-size: 0.8125rem; }
+
+        /* ═══ /transparansi ═══ */
+        .finance-summary {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+        }
+        .finance-summary__card { padding: 1.5rem 1.25rem; }
+        .finance-summary__value { font-size: 1.75rem; }
+        .beneficiary-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem;
+        }
+        .beneficiary-stat { padding: 1.25rem 0.75rem; }
+        .beneficiary-stat__number { font-size: 2rem; }
+        .reports-list { gap: 0.875rem; }
+        .report-item {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                gap: 1rem;
+        }
+        .report-item__icon { margin: 0 auto; width: 48px; height: 48px; }
+        .report-item__icon svg { width: 24px; height: 24px; }
+        .report-item__finance { justify-content: center; }
+        .report-item__action { justify-self: center; }
+
+        /* ═══ /kontak ═══ */
+        .contact-page__grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .contact-social { grid-template-columns: 1fr !important; }
+        .contact-map__embed iframe { height: 320px; }
+
+        /* ═══ /profil ═══ */
+        .profile-section { padding: 3rem 0; }
+        .profile-section__inner {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .vision-mission {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem;
+        }
+        .vision-mission__card { padding: 1.5rem; }
+        .dkm-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem;
+        }
+        .dkm-card { padding: 1.5rem 1.25rem; }
+        .dkm-card__avatar { width: 100px; height: 100px; }
+        .dkm-card__avatar-initial { font-size: 2rem; }
+
+        /* ═══ Single post layout ═══ */
+        .single-layout {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .single-sidebar {
+                position: static !important;
+                flex-direction: column;
+        }
+        .sidebar-donasi,
+        .sidebar-latest { max-width: 100%; margin: 0; }
+        .sidebar-donasi { padding: 1.5rem; }
+        .sidebar-donasi__bank-number { font-size: 1.25rem; }
+        .entry-share__buttons { flex-direction: column; }
+        .share-btn { width: 100%; justify-content: center; }
+        .related-news .news__grid { grid-template-columns: 1fr !important; }
+
+        /* ═══ Homepage sections ═══ */
+        .hero { min-height: 70vh; padding: 3rem 0; }
+        .hero__title { font-size: 2rem; }
+        .hero__subtitle { font-size: 1rem; }
+        .hero__arabic { font-size: 1.5rem; }
+
+        .about { padding: 3rem 0; }
+        .about__inner {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .about__media-badge {
+                right: 1rem;
+                bottom: 1rem;
+                padding: 0.875rem 1rem;
+        }
+        .about__media-badge-number { font-size: 1.5rem; }
+        .about__list li { font-size: 0.9375rem; }
+
+        /* Prayer strip homepage */
+        .prayer-strip { padding: 2rem 0; }
+        .prayer-strip__grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.625rem;
+        }
+        .prayer-cell { padding: 0.875rem 0.5rem; }
+        .prayer-cell__time { font-size: 1.125rem; }
+        .prayer-cell__name { font-size: 0.6875rem; }
+        .prayer-strip__head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+
+        /* Events / Kegiatan Mendatang */
+        .events__grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+        }
+        .event-card {
+                flex-direction: column;
+                gap: 0.875rem;
+                padding: 1.25rem;
+        }
+        .event-card__date { width: 100%; flex-direction: row; justify-content: center; gap: 0.5rem; padding: 0.625rem; }
+        .event-card__day { font-size: 1.5rem; }
+        .event-card__link { display: none; }
+
+        /* Donation CTA homepage */
+        .donation-card__content { padding: 1.75rem 1.25rem; }
+        .donation-methods {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+        }
+        .donation-method { padding: 1.25rem; }
+        .donation-method__number { font-size: 1.5rem; word-break: break-all; }
+        .donation-method__qr { min-height: 180px; padding: 1rem; }
+        .donation-confirm { padding: 1.25rem; text-align: center; }
+
+        /* Transparency section homepage */
+        .transparency__inner {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .transparency__stats {
+                grid-template-columns: 1fr !important;
+                gap: 0.875rem;
+        }
+        .transparency__stat { padding: 1rem; }
+        .transparency__chart {
+                height: 200px;
+                gap: 0.75rem;
+                padding: 1rem 0.5rem 2rem;
+        }
+        .transparency__chart .bar { font-size: 0.6875rem; }
+        .transparency__beneficiaries {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+        }
+        .transparency__beneficiaries-label { margin-bottom: 0.25rem; }
+        .transparency__beneficiary-chip { width: 100%; justify-content: center; }
+
+        /* Contact section homepage */
+        .contact__grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .contact__list { gap: 1rem; }
+        .contact__icon { width: 40px; height: 40px; }
+        .contact__icon svg { width: 18px; height: 18px; }
+        .contact__form-wrap { padding: 1.5rem; }
+        .contact-form__note { font-size: 0.8125rem; }
+
+        /* Footer */
+        .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+        }
+        .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+        }
+        .footer-brand { gap: 0.875rem; }
+        .footer-brand__logo img,
+        .footer-brand__logo .custom-logo { max-height: 48px; }
+
+        /* Header */
+        .header-topbar__contact { display: none; }
+        .header-topbar__cta { width: 100%; text-align: right; }
+        .topbar-donate { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
+        .site-branding { gap: 0.625rem; }
+        .custom-logo-link img,
+        .custom-logo { max-height: 44px; }
+        .site-title { font-size: 1.125rem; }
+        .site-branding__text .site-description { display: none; }
+
+        /* Pagination */
+        .pagination .page-numbers {
+                min-width: 40px;
+                height: 40px;
+                font-size: 0.875rem;
+                padding: 0 0.5rem;
+                margin: 0 0.125rem;
+        }
+
+        /* Forms */
+        .form-row input,
+        .form-row textarea { font-size: 1rem; }
+
+        /* Misc */
+        .scroll-top { width: 40px; height: 40px; bottom: 1rem; right: 1rem; }
+        .about__media-frame { aspect-ratio: 4 / 3; }
+}
+
+@media (max-width: 480px) {
+
+        /* Very small phones */
+        .container { padding: 0 0.875rem; }
+
+        /* Galeri — single column */
+        .galeri-grid { grid-template-columns: 1fr !important; }
+        .galeri-album__media { aspect-ratio: 16 / 10; }
+
+        /* Prayer strip — 2 columns */
+        .prayer-strip__grid,
+        .prayer-strip__grid--page {
+                grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        /* Prayer day detail — 1 column */
+        .prayer-day-detail__grid { grid-template-columns: 1fr !important; }
+
+        /* Beneficiary stats — 1 column */
+        .beneficiary-stats { grid-template-columns: 1fr !important; }
+
+        /* Hero — smaller text */
+        .hero__title { font-size: 1.75rem; }
+        .hero__subtitle { font-size: 0.9375rem; }
+        .hero__arabic { font-size: 1.25rem; }
+
+        /* Buttons full width */
+        .btn { width: 100%; }
+        .btn--sm { width: auto; }
+
+        /* Section title smaller */
+        .section-title { font-size: 1.5rem !important; }
+        .page-header h1 { font-size: 1.625rem; }
+
+        /* Donation methods number */
+        .donation-method__number { font-size: 1.25rem; }
+
+        /* Prayer calendar — even more compact */
+        .prayer-calendar__cell { min-height: 60px; }
+        .prayer-calendar__cell-day { font-size: 0.8125rem; }
+        .prayer-calendar__cell-times { display: none; }
+
+        /* Galeri photos grid — 1 column */
+        .galeri-photos-grid { grid-template-columns: 1fr !important; }
+        .galeri-photo { aspect-ratio: 4 / 3; }
+
+        /* Finance summary value */
+        .finance-summary__value { font-size: 1.5rem; }
+
+        /* News card */
+        .news-card__body { padding: 1rem; }
+        .news-card__title { font-size: 1rem; }
+
+        /* DKM card */
+        .dkm-card__avatar { width: 80px; height: 80px; }
+        .dkm-card__avatar-initial { font-size: 1.5rem; }
+
+        /* Pagination — hide some numbers */
+        .pagination .page-numbers:not(.prev):not(.next):not(.current):not(.dots) {
+                display: none;
+        }
+        .pagination .page-numbers.current { display: inline-flex; }
+}
+
 /* Print */
 @media print {
         .site-header,
